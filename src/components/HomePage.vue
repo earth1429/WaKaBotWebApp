@@ -3,8 +3,8 @@ import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
 import FooterDefault from "@/components/Footer/FooterDefault.vue";
 </script>
 <template>
+    <NavbarDefault />
     <div class="container">
-        <NavbarDefault />
         <h1>Home</h1>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -17,6 +17,6 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
         </div>
-        <FooterDefault/>
+        <FooterDefault />
     </div>
 </template>

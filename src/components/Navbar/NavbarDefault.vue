@@ -1,8 +1,8 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark p-3 fixed-top bg-black tc-white ">
+        <div class="container-fluid width-75">
             <a class="navbar-brand" href="/">
-                <img src="@/assets/img/WakaBotLogo2.png" alt="" width="100" height="98">
+                <a class="nav-link mx-2 active " aria-current="page" href="/">WakaBot</a>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

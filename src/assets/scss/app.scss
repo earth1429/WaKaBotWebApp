@@ -1,29 +1,154 @@
-
-.bg-global{
+.bg-white {
     background: rgb(255, 255, 255);
 }
-.bg-textbox{
+
+.bg-textbox {
     background: #045970;
 }
-.tc-blue-1{
+
+.bg-black {
+    background: black;
+}
+
+.tc-blue-1 {
     color: #045970;
 }
-.tc-blue-2{
+
+.tc-blue-2 {
     color: #36aac9;
 }
-.tc-white{
+
+.tc-white {
     color: #FFFFFF;
 }
-.tc-grey{
+
+.tc-grey {
     color: #768487;
 }
 
-.tw-light{
-    font-weight: 300;
+.tz-52px {
+    font-size: 52px !important;
 }
-.tw-regular{
-    font-weight: 400;
+
+.tz-38px {
+    font-size: 38px !important;
 }
-.tw-medium{
-    font-weight: 500;
+
+.tz-30px {
+    font-size: 30px !important;
+}
+
+.tz-22px {
+    font-size: 22px !important;
+}
+
+.tz-21px {
+    font-size: 21px !important;
+}
+
+.tz-20px {
+    font-size: 20px !important;
+}
+
+.tz-18px {
+    font-size: 18px !important;
+}
+
+.tz-16px {
+    font-size: 16px !important;
+}
+
+.tz-15px {
+    font-size: 15px !important;
+}
+
+.tz-14px {
+    font-size: 14px !important;
+}
+
+.tz-13px {
+    font-size: 13px !important;
+}
+
+.tw-light {
+    font-weight: 300 !important;
+}
+
+.tw-regular {
+    font-weight: 400 !important;
+}
+
+.tw-medium {
+    font-weight: 500 !important;
+}
+
+.box-white {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: rgba(112, 112, 112, 0.1) 1px solid;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+
+.gif-bg {
+    min-height: 90vh;
+    width: 100%;
+    background-image: url("../img/bg/image001.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.text-on-gif{
+    color: black;
+    left: 0;
+    position: fixed;
+    right: 0;
+    bottom: 45%;
+}
+.new-navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 12px;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.width-100{
+    width: 100% !important;
+}
+.width-75{
+    width: 75% !important;
+}
+.width-50{
+    width: 50% !important;
+}
+.width-25{
+    width: 25% !important;
+}
+
+.opacity-100{
+    opacity: 100% !important;
+}
+.opacity-75{
+    opacity: 75% !important;
+}
+.opacity-50{
+    opacity: 50% !important;
+}
+.opacity-25{
+    opacity: 25% !important;
 }

@@ -3,8 +3,8 @@ import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
 import FooterDefault from "@/components/Footer/FooterDefault.vue";
 </script>
 <template>
+    <NavbarDefault />
     <div class="container">
-        <NavbarDefault />
         <h1>Products</h1>
         <div class="container">
             <div class="text-center tc-pink">
@@ -57,6 +57,6 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
             <li>Information</li>
             how to use......
         </div>
-        <FooterDefault/>
+        <FooterDefault />
     </div>
 </template>
