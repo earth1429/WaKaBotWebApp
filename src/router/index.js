@@ -1,30 +1,30 @@
 import { createWebHistory, createRouter } from "vue-router";
-import CreateComponent from "@/components/CreateComponent.vue";
-import EditComponent from "@/components/EditComponent.vue";
-import ListComponent from "@/components/ListComponent.vue";
-import LoginComponent from "@/components/LoginComponent.vue"
+import AboutUsPage from "@/components/AboutUsPage.vue"
+import HomePage from "@/components/HomePage.vue"
+import ProductsPage from "@/components/ProductsPage.vue"
+import WelcomePage from "@/components/WelcomePage.vue"
 
 
 const routes = [
     {
-        path: "/Login",
-        name: "Login",
-        component: LoginComponent,
+        path: "/",
+        name: "Welcome",
+        component: WelcomePage,
     },
     {
-        path: "/Create",
-        name: "create",
-        component: CreateComponent,
+        path: "/aboutus",
+        name: "AboutUs",
+        component: AboutUsPage,
     },
     {
-        path: "/view",
-        name: "view",
-        component: ListComponent,
+        path: "/home",
+        name: "Home",
+        component: HomePage,
     },
     {
-        path: "/edit/:id",
-        name: "edit",
-        component: EditComponent,
+        path: "/products",
+        name: "Products",
+        component: ProductsPage,
     }
 ];
 
