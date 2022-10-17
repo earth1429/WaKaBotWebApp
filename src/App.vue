@@ -6,4 +6,5 @@
 </template>
 <style>
 @import "./assets/scss/app.scss";
+@import "./css/TeamSection.css";
 </style>
