@@ -1,16 +1,44 @@
-<script setup>
-import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
-import FooterDefault from "@/components/Footer/FooterDefault.vue";
-</script>
 <template>
-    <NavbarDefault />
+
     <div class="container">
         <h1>Products</h1>
         <div class="container">
-            <div class="text-center tc-pink">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../assets/img/MaskGroup2.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../assets/img/MaskGroup2.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../assets/img/MaskGroup2.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        <div class="container">
+            <div class="text-center">
                 <span>Background Story</span>
             </div>
-            <div class="tc-grey">
+            <div>
                 <li>In the present day and age, there are many buildings that have many floors, and
                     when there are many floors, there are also many lights. For buildings with few floors,
                     before leaving the building, there might be a few lights on, so it is easy for people to
@@ -27,36 +55,8 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
                     application, thus, allowing the client to take control and understand the specific situation.</li>
             </div>
         </div>
-        <div class="container">
-            <div class="text-center tc-pink">
-                <span>Products</span>
-            </div>
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active align-items-center">
-                        <img src="../assets/img/robot1.jpg" class="d-block w-50" alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../assets/img/robot2.jpg" class="d-block w-50" alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../assets/img/robot1.jpg" class="d-block w-50" alt="..." />
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
             <li>Information</li>
             how to use......
         </div>
-        <FooterDefault />
     </div>
 </template>

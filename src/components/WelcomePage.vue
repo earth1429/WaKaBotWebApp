@@ -17,6 +17,6 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
                 </div>
             </div>
         </div>
-        <FooterDefault />
     </div>
+    <FooterDefault />
 </template>

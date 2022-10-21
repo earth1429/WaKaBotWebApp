@@ -43,7 +43,7 @@ body {
       position: relative;
   }
   .avatar > img {
-      width: 120px;
+      width: 150px;
       margin: auto;
       border-radius: 50%;
       border: 1px solid rgb(170 170 173/ 1);

@@ -1,14 +1,8 @@
-<script setup>
-import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
-import FooterDefault from "@/components/Footer/FooterDefault.vue";
-</script>
 <template>
-    <NavbarDefault />
-    <body>
   <div class="teamWrapper">
     <div class="container pt-5">
       <h1 align="center">Our Team</h1>
-      <p align="center">Something about our team</p>
+      <p align="center">. . .</p>
       <div class="teamGrid">
         <div class="colmun">
           <div class="teamcol">
@@ -20,7 +14,7 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
             </div>
               <div class="member-info"><p align="center">Front-end Developer</p>
             </div>
-              <div class="member-mail"> <p align="center"> <a href="mailto:kettyleroux@gmail.com">kettyleroux@gmail.com</a> </p> </div>
+              <div class="member-mail"> <p align="center"> <a href="mailto:kettyleroux@gmail.com">kitikun.1429@mail.kmutt.ac.th</a> </p> </div>
               <div class="member-social"> 
                 <ul class="social-listing">
                     <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -37,13 +31,13 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
         <div class="colmun">
           <div class="teamcol">
             <div class="teamcolinner">
-              <div class="avatar"><img src="https://i.ibb.co/6nQP7Wm/pexels-vinicius-wiesehofer-1130626-1.jpg" alt="Member"></div>
+              <div class="avatar"><img src="../assets/img/member2.png" alt="Member"></div>
               <div class="member-name"> 
                 <h2 align="center">Alex Gut</h2>
                 <h5 align="center">62130500231</h5>  
             </div>
-              <div class="member-info"><p align="center">Create and Train AI Model</p></div>
-              <div class="member-mail"> <p align="center"> <a href="mailto:kettyleroux@gmail.com">kettyleroux@gmail.com</a> </p> </div>
+              <div class="member-info"><p align="center">Mechanic and robot engineer</p></div>
+              <div class="member-mail"> <p align="center"> <a href="mailto:kettyleroux@gmail.com">alex.no0ne@mail.kmutt.ac.th</a> </p> </div>
               <div class="member-social"> 
                 <ul class="social-listing">
                   <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -65,8 +59,8 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
                 <h2 align="center">Bunason Sutjaritrungsri</h2>
                 <h5 align="center">62130500240</h5>  
             </div>
-              <div class="member-info"><p align="center">object detecting API</p></div>
-              <div class="member-mail"> <p align="center"> <a href="mailto:kettyleroux@gmail.com">kettyleroux@gmail.com</a> </p> </div>
+              <div class="member-info"><p align="center">Object detecting API</p></div>
+              <div class="member-mail"> <p align="center"> <a href="mailto:kettyleroux@gmail.com">Bunason.1@mail.kmutt.ac.th</a> </p> </div>
               <div class="member-social"> 
                 <ul class="social-listing">
                     <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -83,40 +77,7 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
       </div>
     </div>  
   </div>
-</body>
 
-
-    <!-- <div class="container py-5">
-        <div class="text-center">
-            <h1>About Us</h1>
-        </div>
-        <div class="container">
-            <div class="row justify-content-around align-items-center px-5">
-                <div class="col-auto box-white">
-                    <div class="tc-blue-1 tz-30px tw-medium">
-                        <span>Kitikun Pinyoporn</span><br>
-                    </div>
-                    <div class="tc-blue-1 tz-30px tw-medium">
-                        <span>62130500205</span><br>
-                    </div>
-                    <div class="tc-blue-2 tz-22px tw-regular">
-                        <span>Responsible on</span><br>
-                    </div>
-                    <div class="tc-grey tz-20px">
-                        <ul>
-                            <li>UX & UI Design</li>
-                            <li>Document</li>
-                            <li>Front-end developer</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <img src="../assets/img/member1.png" class="img-thumbnail" alt="">
-                </div>
-            </div>
-        </div> -->
-
-        <FooterDefault />
 </template>
 
 <style>
