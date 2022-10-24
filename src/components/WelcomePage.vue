@@ -20,3 +20,6 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
     </div>
     <FooterDefault />
 </template>
+<style>
+@import "../assets/scss/app.scss";
+</style>

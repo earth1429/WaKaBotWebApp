@@ -14,3 +14,6 @@ import HeaderDefault from "@/components/HeaderDefault.vue";
     </div>
     <FooterDefault />
 </template>
+<style>
+@import "../assets/scss/app.scss";
+</style>

@@ -13,4 +13,5 @@
 
 <style>
 @import "../css/HeaderSection.scss";
+@import "../assets/scss/app.scss";
 </style>

@@ -1,5 +1,6 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark p-3 fixed-top bg-black tc-white ">
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black tc-white ">
         <div class="container-fluid width-75">
             <a class="navbar-brand" href="/">
                 <a class="nav-link mx-2 active " aria-current="page" href="/">WakaBot</a>
@@ -27,4 +28,9 @@
             </div>
         </div>
     </nav>
+</div>
 </template>
+<style>
+@import "../../assets/scss/app.scss";   
+</style>
+
