@@ -7,7 +7,7 @@
         <div class="colmun">
           <div class="teamcol">
             <div class="teamcolinner">
-              <div class="avatar"><img src="../assets/img/member1.png" alt="Member"></div>
+              <div class="avatar thumbinner"><img src="../assets/img/member1.png" alt="Member"></div>
               <div class="member-name">
                 <h2 align="center">Kitikun Pinyoporn</h2>
                 <h5 align="center">62130500205</h5>
@@ -30,7 +30,7 @@
         <div class="colmun">
           <div class="teamcol">
             <div class="teamcolinner">
-              <div class="avatar"><img src="../assets/img/member2.png" alt="Member"></div>
+              <div class="avatar thumbinner"><img src="../assets/img/member2.png" alt="Member"></div>
               <div class="member-name">
                 <h2 align="center">Alex Gut</h2>
                 <h5 align="center">62130500231</h5>
@@ -53,7 +53,7 @@
         <div class="colmun">
           <div class="teamcol">
             <div class="teamcolinner">
-              <div class="avatar"><img src="../assets/img/member3.png" alt="Member"></div>
+              <div class="avatar thumbinner"><img src="../assets/img/member3.png" alt="Member"></div>
               <div class="member-name">
                 <h2 align="center">Bunason Sutjaritrungsri</h2>
                 <h5 align="center">62130500240</h5>
