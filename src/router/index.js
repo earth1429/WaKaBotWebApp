@@ -6,7 +6,6 @@ import WelcomePage from "@/components/WelcomePage.vue"
 import LoginPage from "@/components/LoginPage.vue";
 import FeedPage from "@/components/FeedPage.vue";
 import {getAuth,onAuthStateChanged}from "firebase/auth";
-// import {getAuth}from "firebase/auth";
 
 const routes = [
     {
@@ -61,19 +60,6 @@ const getCurrentUser=()=>{
         );
     });
 };
-
-// router.beforeEach((to,from,next)=>{
-//     if(to.matched.some((record)=>record.meta.requiresAuth)){
-//         if(getAuth().currentUser){
-//             next();
-//         }else{
-//             alert("you don't have access.")
-//             next("/")
-//         }
-//     }else{
-//         next();
-//     }
-// });
 
 router.beforeEach(async (to,from,next)=>{
     if(to.matched.some((record)=>record.meta.requiresAuth)){
