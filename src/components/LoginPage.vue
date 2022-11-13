@@ -31,10 +31,10 @@ const login=async ()=>{
                             <div class="form-left h-100 py-5 px-5">
                                 <div action="" class="row g-4">
                                         <div class="col-12">
-                                            <label>Username<span class="text-danger">*</span></label>
+                                            <label>Email<span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                                                <input type="text" class="form-control" placeholder="Enter Username" v-model="username">
+                                                <input type="text" class="form-control" placeholder="Enter Email" v-model="username">
                                             </div>
                                         </div>
 
@@ -75,7 +75,7 @@ const login=async ()=>{
         </div>
         <!-- TEMPORARY -->
         <h1 class="text-center">Test Authentication</h1>
-        <h2 class="text-center">Username: capstonepro2@gmail.com</h2>
+        <h2 class="text-center">Email: capstonepro2@gmail.com</h2>
         <h2 class="text-center">Password: capstonepro2@gmail.com</h2>
         <!-- TEMPORARY -->
     </div>
