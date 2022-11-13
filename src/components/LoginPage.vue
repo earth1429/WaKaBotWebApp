@@ -1,16 +1,16 @@
 <script setup>
 import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
 import {ref} from "vue";
-import {getAuth,signInWithEmailAndPassword} from "firebase/auth";
+import {getAuth,signInWithEmailAndPassword,sendPasswordResetEmail} from "firebase/auth";
 import {useRouter} from "vue-router";
-const username=ref("");
+const email=ref("");
 const password=ref("");
 const router=useRouter()
 const login=async ()=>{
     const auth=getAuth()
-    await signInWithEmailAndPassword(auth,username.value,password.value)
+    await signInWithEmailAndPassword(auth,email.value,password.value)
     .then((data)=>{
-        console.log("Logined!"+data);
+        console.log("Logined! "+data);
         // console.log(auth.currentUser)
         router.push("/feed")
     }).catch((error)=>{
@@ -18,6 +18,20 @@ const login=async ()=>{
         alert(error.message);
     })
 }
+
+const passwordReset=async ()=>{    
+    const auth = getAuth();
+    await sendPasswordResetEmail(auth,email.value)
+    .then(()=>{
+        console.log("Password reset email sent!")
+        alert("Password reset email sent!");
+    })
+    .catch((error)=>{
+        console.log(error)
+        alert(error.message);
+    });
+}
+
 </script>
 <template>
     <NavbarDefault />
@@ -34,7 +48,7 @@ const login=async ()=>{
                                             <label>Email<span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                                                <input type="text" class="form-control" placeholder="Enter Email" v-model="username">
+                                                <input type="text" class="form-control" placeholder="Enter Email" v-model="email">
                                             </div>
                                         </div>
 
@@ -46,15 +60,8 @@ const login=async ()=>{
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                                                <label class="form-check-label" for="inlineFormCheck">Remember me</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <a href="#" class="float-end text-primary">Forgot Password?</a>
+                                        <div class="col-12">
+                                            <a @click="passwordReset" href="#" class="float-end text-primary">Forgot Password?</a>
                                         </div>
 
                                         <div class="col-12">
@@ -74,9 +81,9 @@ const login=async ()=>{
             </div>
         </div>
         <!-- TEMPORARY -->
-        <h1 class="text-center">Test Authentication</h1>
+        <!-- <h1 class="text-center">Test Authentication</h1>
         <h2 class="text-center">Email: capstonepro2@gmail.com</h2>
-        <h2 class="text-center">Password: capstonepro2@gmail.com</h2>
+        <h2 class="text-center">Password: capstonepro2@gmail.com</h2> -->
         <!-- TEMPORARY -->
     </div>
 </div>
