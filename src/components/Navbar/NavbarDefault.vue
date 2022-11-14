@@ -1,3 +1,25 @@
+<script setup>
+import { onMounted,ref } from "vue";
+import{getAuth,onAuthStateChanged,signOut}from "firebase/auth";
+import router from "@/router";
+const isLoggedIn=ref(false);
+let auth;
+onMounted(()=>{
+    auth=getAuth();
+    onAuthStateChanged(auth,(user)=>{
+        if(user){
+            isLoggedIn.value=true;
+        }else{
+            isLoggedIn.value=false;
+        }
+    });
+});
+const handleSignOut=()=>{
+    signOut(auth).then(()=>{
+        router.push("/home");
+    });
+};
+</script>
 <template>
     <div>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black tc-white ">
@@ -22,7 +44,10 @@
                         <a class="nav-link mx-2" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" href="/Login">Login</a>
+                        <a v-if="!isLoggedIn" class="nav-link mx-2" href="/Login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a @click="handleSignOut" v-if="isLoggedIn" class="nav-link mx-2 pointer">Logout</a>
                     </li>
                 </ul>
             </div>
