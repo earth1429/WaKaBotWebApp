@@ -1,16 +1,16 @@
 <script setup>
 import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
 import FooterDefault from "@/components/Footer/FooterDefault.vue";
-import AboutUsCom from "@/components/Comps/AboutUsCom.vue";
-import ProductsCom from "@/components/Comps/ProductsCom.vue";
+import AboutUsComp from "@/components/Comps/AboutUsComp.vue";
+import ProductsComp from "@/components/Comps/ProductsComp.vue";
 import HeaderDefault from "@/components/HeaderDefault.vue";
 </script>
 <template>
     <NavbarDefault page='home'/>
     <HeaderDefault/>
     <div class="container fontThin">
-        <ProductsCom/>
-        <AboutUsCom/>
+        <AboutUsComp/>
+        <ProductsComp/>
     </div>
     <FooterDefault/>
 </template>
