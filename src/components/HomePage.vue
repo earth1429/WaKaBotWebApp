@@ -9,8 +9,8 @@ import HeaderDefault from "@/components/HeaderDefault.vue";
     <NavbarDefault page='home'/>
     <HeaderDefault/>
     <div class="container fontThin">
-        <AboutUsCom/>
         <ProductsCom/>
+        <AboutUsCom/>
     </div>
     <FooterDefault/>
 </template>

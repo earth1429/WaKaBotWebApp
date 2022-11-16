@@ -1,5 +1,5 @@
 <template>
-  <div class="teamWrapper">
+  <div class="pt-5" id="AboutusSection">
     <div class="container pt-5">
       <h1 align="center" class="tz-44px">Our Team</h1>
       <p align="center" class="tz-44px pb-3">. . . . . . . . . . . .</p>
