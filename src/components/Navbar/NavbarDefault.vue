@@ -1,10 +1,25 @@
 <script setup>
+
 import { onMounted,ref } from "vue";
-// import{getAuth,onAuthStateChanged,signOut}from "firebase/auth";
-import{getAuth,onAuthStateChanged}from "firebase/auth";
+import{getAuth,onAuthStateChanged,signOut}from "firebase/auth";
 import router from "@/router";
 const isLoggedIn=ref(false);
 const auth=getAuth();
+onMounted(()=>{
+    onAuthStateChanged(auth,(user)=>{
+        if(user){
+            isLoggedIn.value=true;
+        }else{
+            isLoggedIn.value=false;
+        }
+    });
+});
+const handleSignOut=()=>{
+    signOut(auth).then(()=>{
+        router.push("/home");
+    });
+};
+
 onMounted(()=>{
     onAuthStateChanged(auth,(user)=>{
         if(user){
@@ -51,6 +66,9 @@ export default {
                     </li>
                     <li class="nav-item">
                         <a v-if="isLoggedIn" @click="pushFeature" class="nav-link mx-2 pointer" v-bind:class="page=='feature'?'active':''">Beta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a v-if="isLoggedIn" @click="handleSignOut" class="nav-link mx-2 pointer" >Logout</a>
                     </li>
                 </ul>
             </div>
