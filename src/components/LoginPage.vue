@@ -6,13 +6,12 @@ import {useRouter} from "vue-router";
 const email=ref("");
 const password=ref("");
 const router=useRouter()
+const auth=getAuth()
 const login=async ()=>{
-    const auth=getAuth()
     await signInWithEmailAndPassword(auth,email.value,password.value)
     .then((data)=>{
         console.log("Logined! "+data);
-        // console.log(auth.currentUser)
-        router.push("/feed")
+        router.push("/feature")
     }).catch((error)=>{
         console.log(error.code);
         alert(error.message);
@@ -20,7 +19,6 @@ const login=async ()=>{
 }
 
 const passwordReset=async ()=>{    
-    const auth = getAuth();
     await sendPasswordResetEmail(auth,email.value)
     .then(()=>{
         console.log("Password reset email sent!")
@@ -34,7 +32,7 @@ const passwordReset=async ()=>{
 
 </script>
 <template>
-    <NavbarDefault />
+    <NavbarDefault page='login'/>
     <div class="login-page  section">
     <div class="container">
         <div class="row">

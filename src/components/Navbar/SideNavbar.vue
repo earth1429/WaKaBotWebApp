@@ -1,3 +1,30 @@
+<script setup>
+import { onMounted,ref } from "vue";
+import{getAuth,onAuthStateChanged,signOut}from "firebase/auth";
+import router from "@/router";
+const isLoggedIn=ref(false);
+const email=ref("");
+const auth=getAuth();
+onMounted(()=>{
+    onAuthStateChanged(auth,(user)=>{
+        if(user){
+            isLoggedIn.value=true;
+            email.value=auth.currentUser.email
+        }else{
+            isLoggedIn.value=false;
+            email.value=""
+        }
+    });
+});
+const handleSignOut=()=>{
+    signOut(auth).then(()=>{
+        router.push("/home");
+    });
+};
+// window.addEventListener('beforeunload', function(event) {
+//     event.returnValue = auth=getAuth()
+// })
+</script>
 <template>
     <div class="container-fluid">
         <div class="row flex-nowrap">
@@ -57,7 +84,7 @@
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../../assets/img/member1.png" alt="hugenerd" width="30" height="30"
                                 class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">ชื่อ user</span>
+                            <span class="d-none d-sm-inline mx-1">{{email}}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -66,7 +93,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li><a @click="handleSignOut" v-if="isLoggedIn" class="dropdown-item" href="#">Sign out</a></li>
                         </ul>
                     </div>
                 </div>

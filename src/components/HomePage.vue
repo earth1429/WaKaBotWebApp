@@ -1,18 +1,18 @@
 <script setup>
 import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
 import FooterDefault from "@/components/Footer/FooterDefault.vue";
-import AboutUsPage from "@/components/AboutUsPage.vue";
-import ProductsPage from "@/components/ProductsPage.vue";
+import AboutUsCom from "@/components/comps/AboutUsCom.vue";
+import ProductsCom from "@/components/comps/ProductsCom.vue";
 import HeaderDefault from "@/components/HeaderDefault.vue";
 </script>
 <template>
-    <NavbarDefault />
+    <NavbarDefault page='home'/>
     <HeaderDefault/>
     <div class="container fontThin">
-        <ProductsPage/>
-        <AboutUsPage/>
+        <AboutUsCom/>
+        <ProductsCom/>
     </div>
-    <FooterDefault />
+    <FooterDefault/>
 </template>
 <style>
 @import "../assets/scss/app.scss";
