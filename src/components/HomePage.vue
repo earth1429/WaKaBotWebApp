@@ -6,7 +6,7 @@ import ProductsComp from "@/components/Comps/ProductsComp.vue";
 import HeaderDefault from "@/components/HeaderDefault.vue";
 </script>
 <template>
-    <NavbarDefault page='home'/>
+    <NavbarDefault/>
     <HeaderDefault/>
     <div class="container fontThin">
         <ProductsComp/>

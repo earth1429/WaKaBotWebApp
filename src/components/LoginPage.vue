@@ -32,7 +32,7 @@ const passwordReset=async ()=>{
 
 </script>
 <template>
-    <NavbarDefault page='login'/>
+    <NavbarDefault/>
     <div class="login-page  section">
     <div class="container">
         <div class="row">
