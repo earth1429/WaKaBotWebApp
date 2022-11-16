@@ -1,23 +1,23 @@
 <script setup>
-import { onMounted,ref } from "vue";
-import{getAuth,onAuthStateChanged,signOut}from "firebase/auth";
+import { onMounted, ref } from "vue";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "@/router";
-const isLoggedIn=ref(false);
-const email=ref("");
-const auth=getAuth();
-onMounted(()=>{
-    onAuthStateChanged(auth,(user)=>{
-        if(user){
-            isLoggedIn.value=true;
-            email.value=auth.currentUser.email
-        }else{
-            isLoggedIn.value=false;
-            email.value=""
+const isLoggedIn = ref(false);
+const email = ref("");
+const auth = getAuth();
+onMounted(() => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            isLoggedIn.value = true;
+            email.value = auth.currentUser.email
+        } else {
+            isLoggedIn.value = false;
+            email.value = ""
         }
     });
 });
-const handleSignOut=()=>{
-    signOut(auth).then(()=>{
+const handleSignOut = () => {
+    signOut(auth).then(() => {
         router.push("/home");
     });
 };
@@ -38,6 +38,9 @@ const handleSignOut=()=>{
                         id="menu">
                         <div class="px-4">
                             <li class="nav-item">
+                                <a href="/home" class="nav-link align-middle px-0 tc-grey">
+                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                                </a>
                                 <a href="#" class="nav-link align-middle px-0 tc-grey">
                                     <i class="fs-4 bi-book"></i> <span class="ms-1 d-none d-sm-inline">Manual</span>
                                 </a>
@@ -84,7 +87,7 @@ const handleSignOut=()=>{
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../../assets/img/member1.png" alt="hugenerd" width="30" height="30"
                                 class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">{{email}}</span>
+                            <span class="d-none d-sm-inline mx-1">{{ email }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -93,7 +96,8 @@ const handleSignOut=()=>{
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a @click="handleSignOut" v-if="isLoggedIn" class="dropdown-item" href="#">Sign out</a></li>
+                            <li><a @click="handleSignOut" v-if="isLoggedIn" class="dropdown-item" href="#">Sign out</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
