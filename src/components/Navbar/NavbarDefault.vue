@@ -56,16 +56,16 @@ export default {
                         <a class="nav-link mx-2" v-bind:class="page=='home'?'active':''" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2 " v-bind:class="page=='aboutus'?'active':''" href="/aboutus">About us</a>
+                        <a class="nav-link mx-2 " href="/aboutus">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" v-bind:class="page=='product'?'active':''" href="/products">Products</a>
+                        <a class="nav-link mx-2" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
                         <a v-if="!isLoggedIn" class="nav-link mx-2" v-bind:class="page=='login'?'active':''" href="/Login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a v-if="isLoggedIn" @click="pushFeature" class="nav-link mx-2 pointer" v-bind:class="page=='feature'?'active':''">Beta</a>
+                        <a v-if="isLoggedIn" @click="pushFeature" class="nav-link mx-2 pointer">Beta</a>
                     </li>
                     <li class="nav-item">
                         <a v-if="isLoggedIn" @click="handleSignOut" class="nav-link mx-2 pointer" >Logout</a>
