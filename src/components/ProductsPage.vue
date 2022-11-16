@@ -1,6 +1,6 @@
 <script setup>
 import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
-import ProductsCom from "@/components/comps/ProductsCom.vue";
+import ProductsCom from "@/components/Comps/ProductsCom.vue";
 import FooterDefault from "@/components/Footer/FooterDefault.vue";
 </script>
 <template>
