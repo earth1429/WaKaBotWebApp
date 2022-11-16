@@ -21,7 +21,7 @@ const routes = [
         name: "Login",
         component: LoginPage,
         meta:{
-            noLogin:true,
+            requiresNoAuth:true,
         },
     },
     {
@@ -58,12 +58,12 @@ router.beforeEach(async (to,from,next)=>{
             next();
         }else{
             console.log("You don't have access.");
-            next("/");
+            next("/home");
         }
-    }else if(to.matched.some((record)=>record.meta.noLogin)){
+    }else if(to.matched.some((record)=>record.meta.requiresNoAuth)){
         if(await getCurrentUser()){
-            console.log("Go to Feature.");
-            next("/feature");
+            console.log("You need to logout first.");
+            next("/home");
         }else{
             next();
         }
