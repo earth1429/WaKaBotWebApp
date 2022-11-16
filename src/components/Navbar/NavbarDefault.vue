@@ -19,23 +19,13 @@ const handleSignOut=()=>{
         router.push("/home");
     });
 };
-
-onMounted(()=>{
-    onAuthStateChanged(auth,(user)=>{
-        if(user){
-            isLoggedIn.value=true;
-        }else{
-            isLoggedIn.value=false;
-        }
-    });
-});
 const pushFeature=()=>{
     router.push("/feature");
 };
 </script>
 <script>
 export default {
- props: ['page']
+    props: ['page'],
 }
 </script>
 <template>
@@ -53,7 +43,7 @@ export default {
             <div class=" collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
-                        <a class="nav-link mx-2" aria-current="page" href="/home">Home</a>
+                        <a class="nav-link mx-2" v-bind:class="page=='home'?'active':''" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-2" href="/home#ProductsSection">Products</a>
