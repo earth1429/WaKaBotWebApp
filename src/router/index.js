@@ -32,6 +32,9 @@ const routes = [
         path: "/login",
         name: "Login",
         component: LoginPage,
+        meta:{
+            noLogin:true,
+        },
     },
     {
         path: "/feature",
@@ -68,6 +71,13 @@ router.beforeEach(async (to,from,next)=>{
         }else{
             console.log("You don't have access.");
             next("/");
+        }
+    }else if(to.matched.some((record)=>record.meta.noLogin)){
+        if(await getCurrentUser()){
+            console.log("Go to Feature.");
+            next("/feature");
+        }else{
+            next();
         }
     }else{
         next();
