@@ -59,7 +59,7 @@
                 <h5 align="center">62130500240</h5>
               </div>
               <div class="member-info">
-                <p align="center">Object detecting API</p>
+                <p align="center">Database & Back-end Developer</p>
               </div>
               <div class="member-mail">
                 <p align="center"> <a href="mailto:kettyleroux@gmail.com">Bunason.1@mail.kmutt.ac.th</a> </p>
