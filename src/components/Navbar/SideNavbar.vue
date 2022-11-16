@@ -9,23 +9,23 @@
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <div class="px-4">
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Manual</span>
+                        <a href="#" class="nav-link align-middle px-0 tc-grey">
+                            <i class="fs-4 bi-book"></i> <span class="ms-1 d-none d-sm-inline">Manual</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Mapping</span> </a>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle tc-grey">
+                            <i class="fs-4 bi-map"></i> <span class="ms-1 d-none d-sm-inline">Mapping</span> </a>
                         <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item 1</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item 2</span></a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#m  enu">
@@ -42,7 +42,7 @@
                                 <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                 </div>
                 </ul>
                 <hr>
