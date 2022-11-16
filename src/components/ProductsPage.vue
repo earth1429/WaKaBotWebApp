@@ -1,5 +1,4 @@
 <template>
-
     <div class="container">
         <h1 align="center" class="py-5 tz-44px">Products</h1>
         <div class="container">

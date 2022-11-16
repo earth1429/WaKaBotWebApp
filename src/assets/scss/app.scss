@@ -174,3 +174,7 @@ a {
 .pointer {
     cursor: pointer;
 }
+
+.nav-link:focus, .nav-link:hover{
+    color: #fff !important;
+}

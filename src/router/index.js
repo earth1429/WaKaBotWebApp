@@ -5,6 +5,7 @@ import ProductsPage from "@/components/ProductsPage.vue"
 import WelcomePage from "@/components/WelcomePage.vue"
 import LoginPage from "@/components/LoginPage.vue";
 import FeedPage from "@/components/FeedPage.vue";
+import FeaturePage from "@/components/FeaturePage.vue";
 import {getAuth,onAuthStateChanged}from "firebase/auth";
 
 const routes = [
@@ -40,7 +41,13 @@ const routes = [
         meta:{
             requiresAuth:true,
         },
+    },
+    {
+        path: "/feature",
+        name: "Feature",
+        component: FeaturePage,
     }
+        
 ];
 
 const router = createRouter({

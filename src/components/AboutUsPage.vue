@@ -76,9 +76,7 @@
       </div>
     </div>
   </div>
-
 </template>
-
 <style>
 @import "../css/TeamSection.css";
 @import "../assets/scss/app.scss";
