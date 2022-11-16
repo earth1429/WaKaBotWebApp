@@ -56,10 +56,10 @@ export default {
                         <a class="nav-link mx-2" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" href="#ProductsSection">Products</a>
+                        <a class="nav-link mx-2" href="/home#ProductsSection">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2 " href="#AboutusSection">About us</a>
+                        <a class="nav-link mx-2 " href="/home#AboutusSection">About us</a>
                     </li>
                     <li class="nav-item">
                         <a v-if="!isLoggedIn" class="nav-link mx-2" v-bind:class="page=='login'?'active':''" href="/Login">Login</a>
