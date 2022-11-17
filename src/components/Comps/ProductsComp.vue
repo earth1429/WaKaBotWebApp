@@ -1,6 +1,6 @@
 <template>
     <div class="container pt-5" id="ProductsSection">
-        <h1 align="center" class="py-5 tz-44px">Products</h1>
+        <h1 align="center" class="py-5 tz-44px tw-medium">Products</h1>
         <div class="container">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                 <div class="carousel-indicators">
@@ -33,39 +33,45 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <div class="container">
-                <h1>Background Story</h1>
-                <div>
-                    <ul>
-                        <li>In the present day and age, there are many buildings that have many floors, and
-                            when there are many floors, there are also many lights. For buildings with few floors,
-                            before leaving the building, there might be a few lights on, so it is easy for people to
-                            check them and turn them off. However, when there are a lot of lights that are still open
-                            on multiple floors, it will take time and effort to go through them. Therefore, the
-                            WakaBot project will help check on the lights, reducing the unnecessary time wasted on
-                            going through them.</li>
-                        <br>
-                        <li>WakaBot is a robot that would be used for surveying buildings with multi-floor, to
-                            detect light by using machine learning and sensors. The robot would recognize the
-                            elevator floor buttons through machine learning and used them to go through each floor.
-                            The robot also uses Lidra sensor to detect objects, preventing the robot from hitting any
-                            object. When necessary, the client can also access WakaBot remotely through the web
-                            application, thus, allowing the client to take control and understand the specific
-                            situation.</li>
-                    </ul>
+            <div class="container pt-5">
+                <div class="row justify-content-between">
+                    <div class="col-auto">
+                        <div class="box-white p-3 sd-box">
+                            <div class="text-center">
+                                <img src="../../assets/img/RaspberryPi.jpg" class="img-thumbnail"
+                                    style="height: 200px;" width="286px">
+                            </div>
+                            <div class="tz-22px tc-black p-2">
+                                <span class="tw-medium">Raspberry Pi</span> <br>
+                                <span> Raspberry Pi is a very cheap computer that runs Linux, but it also provides a set of GPIO (general purpose input/output) pins, allowing you to control electronic components for physical computing and explore the Internet of Things (IoT).</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="box-white p-3 sd-box">
+                            <div class="text-center">
+                                <img src="../../assets/img/LidarScanner.jpg" class="img-thumbnail"
+                                    style="height: 200px;" width="286px">
+                            </div>
+                            <div class="tz-22px tc-black p-2">
+                                <span class="tw-medium">Lidar Scanner</span> <br>
+                                <span>LiDAR is a remote sensing method. LiDAR technology uses the light from a laser to collect measurements. These are used to create 3D models and maps of objects and environments.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="box-white p-3 sd-box">
+                            <div class="text-center">
+                                <img src="../../assets/img/PIRsensor.jpg" class="img-thumbnail" style="height: 200px;"  width="286px">
+                            </div>
+                            <div class="tz-22px tc-black p-2">
+                                <span class="tw-medium">PIR Sensor</span> <br>
+                                <span>A passive infrared sensor (PIR sensor) is an electronic sensor that measures infrared (IR) light radiating from objects in its field of view. They are most often used in PIR-based motion detectors. PIR sensors are commonly used in security alarms and automatic lighting applications.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <h1>Problem Statement</h1>
-            <ul>
-                <li>
-                    In many buildings with multiple floors, when the night comes, guards would need
-                    to walk around the building, checking on the lights to turn them off one by one. The
-                    more floors and rooms there are, the more time and energy would be wasted on
-                    through all of them. Therefore, the WakaBot would help in checking the light for the
-                    guards, and reduce the time that they need to go through them
-                </li>
-            </ul>
-
         </div>
     </div>
 </template>

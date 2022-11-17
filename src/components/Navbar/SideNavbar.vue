@@ -61,24 +61,24 @@ const handleSignOut = () => {
                                     </li>
                                 </ul>
                             </li>
-                            <!-- <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <li>
+                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle tc-grey">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#m  enu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                                <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Product 1</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                                <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Product 2</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                                <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Product 3</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                                <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Product 4</span></a>
                             </li>
                         </ul>
-                    </li> -->
+                    </li>
                         </div>
                     </ul>
                     <hr>

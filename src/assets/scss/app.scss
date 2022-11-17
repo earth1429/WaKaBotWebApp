@@ -81,18 +81,8 @@
 }
 
 .tw-medium {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
 }
-
-.box-white {
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    border: rgba(112, 112, 112, 0.1) 1px solid;
-    width: auto;
-    height: auto;
-    position: relative;
-}
-
 .gif-bg {
     min-height: 90vh;
     width: 100%;
@@ -177,4 +167,18 @@ a {
 
 .nav-link:focus, .nav-link:hover{
     color: #fff !important;
+}
+
+.box-white{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: rgba(112, 112, 112, 0.1) 1px solid;
+    width: 320px;
+    height: auto;
+    position: relative;
+    padding-bottom: 25%;
+}
+
+.sd-box{
+    box-shadow: 0px 2px 5px #0000001A;
 }
