@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Source+Sans+Pro:wght@200&display=swap');
 *{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Merriweather',  serif;
 }
 .bg-white {
     background: rgb(255, 255, 255);
@@ -40,6 +40,10 @@
     font-size: 30px !important;
 }
 
+.tz-26px {
+    font-size: 26px !important;
+}
+
 .tz-22px {
     font-size: 22px !important;
 }
@@ -76,12 +80,11 @@
     font-weight: 300 !important;
 }
 
-.tw-regular {
-    font-weight: 400 !important;
-}
-
 .tw-medium {
     font-weight: 600 !important;
+}
+.t-spacing{
+    line-height: 1.5 !important;
 }
 .gif-bg {
     min-height: 90vh;
@@ -174,7 +177,7 @@ a {
     border-radius: 5px;
     border: rgba(112, 112, 112, 0.1) 1px solid;
     width: 325px;
-    height: 520px;
+    height: 600px;
     position: relative;
     padding-bottom: 25%;
 }

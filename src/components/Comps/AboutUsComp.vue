@@ -1,6 +1,6 @@
 <template>
-  <div class="pt-5" id="AboutusSection">
-    <div class="container pt-5">
+  <div class="py-5" id="AboutusSection">
+    <div class="container">
       <h1 align="center" class="tz-44px tw-medium">Our Team</h1>
       <p align="center" class="tz-44px pb-3">. . . . . . . . . . . .</p>
       <div class="teamGrid">
@@ -9,7 +9,7 @@
             <div class="teamcolinner">
               <div class="avatar thumbinner"><img src="../../assets/img/member1.png" alt="Member"></div>
               <div class="member-name">
-                <h2 align="center">Kitikun Pinyoporn</h2>
+                <h3 align="center">Kitikun Pinyoporn</h3>
                 <h5 align="center">62130500205</h5>
               </div>
               <div class="member-info">
@@ -32,7 +32,7 @@
             <div class="teamcolinner">
               <div class="avatar thumbinner"><img src="../../assets/img/member2.png" alt="Member"></div>
               <div class="member-name">
-                <h2 align="center">Alex Gut</h2>
+                <h3 align="center">Alex Gut</h3>
                 <h5 align="center">62130500231</h5>
               </div>
               <div class="member-info">
@@ -55,7 +55,7 @@
             <div class="teamcolinner">
               <div class="avatar thumbinner"><img src="../../assets/img/member3.png" alt="Member"></div>
               <div class="member-name">
-                <h2 align="center">Bunason Sutjaritrungsri</h2>
+                <h3 align="center">Bunason Sutjaritrungsri</h3>
                 <h5 align="center">62130500240</h5>
               </div>
               <div class="member-info">

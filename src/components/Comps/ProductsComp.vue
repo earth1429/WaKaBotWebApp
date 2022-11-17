@@ -1,7 +1,7 @@
 <template>
-    <div class="container pt-5" id="ProductsSection">
-        <div class="py-5">
-            <h1 align="center" class="tz-44px tw-medium">Products</h1>
+    <div class="py-5">
+        <div class="pb-5">
+            <h1 align="center" class="tz-44px tw-medium">Image of WakaBot</h1>
             <p align="center" class="tz-44px pb-3">. . . . . . . . . . . .</p>
         </div>
         <div class="container">
@@ -38,63 +38,9 @@
                 <div class="box-title-white p-4 lh-1">
                     <div class="teamcol">
                         <div class="teamcolinner p-3">
-                    <span class="tz-20px tw-light tc-grey-2 opacity-100">The Design of</span><br>
-                    <span class="tz-44px tw-medium tc-blue-2 opacity-100">WakaBot</span><br>
-                    <span class="tz-18px tw-light tc-grey-2 opacity-100">with mechanical hardware</span>
-                </div>
-                </div>
-                </div>
-            </div>
-
-
-            <div class="container py-5 text-center">
-                <h1 class="tz-44px tw-medium">Hardware Part</h1>
-                <p align="center" class="tz-44px pb-3">. . . . . . . . . . . .</p>
-            </div>
-            <div class="container pt-5">
-                <div class="row justify-content-between">
-                    <div class="col-auto">
-                        <div class="box-white p-3 sd-box">
-                            <div class="text-center">
-                                <img src="../../assets/img/RaspberryPi.jpg" class="img-thumbnail" style="height: 200px;"
-                                    width="286px">
-                            </div>
-                            <div class=" tc-black p-2">
-                                <span class="tw-medium tz-22px">Raspberry Pi</span> <br>
-                                <span class="tz-18px"> Raspberry Pi is a very cheap computer that runs Linux, but it
-                                    also provides a set of GPIO (general purpose input/output) pins, allowing you to
-                                    control electronic components for physical computing and explore the Internet of
-                                    Things (IoT).</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div class="box-white p-3 sd-box">
-                            <div class="text-center">
-                                <img src="../../assets/img/LidarScanner.jpg" class="img-thumbnail"
-                                    style="height: 200px;" width="286px">
-                            </div>
-                            <div class=" tc-black p-2">
-                                <span class="tw-medium tz-22px">Lidar Scanner</span> <br>
-                                <span class="tz-18px">LiDAR is a remote sensing method. LiDAR technology uses the light
-                                    from a laser to collect measurements. These are used to create 3D models and maps of
-                                    objects and environments.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div class="box-white p-3 sd-box">
-                            <div class="text-center">
-                                <img src="../../assets/img/PIRsensor.jpg" class="img-thumbnail" style="height: 200px;"
-                                    width="286px">
-                            </div>
-                            <div class=" tc-black p-2">
-                                <span class="tw-medium tz-22px">PIR Sensor</span> <br>
-                                <span class="tz-18px">A passive infrared sensor (PIR sensor) is an electronic sensor
-                                    that measures infrared (IR) light radiating from objects in its field of view. They
-                                    are most often used in PIR-based motion detectors. PIR sensors are commonly used in
-                                    security alarms and automatic lighting applications.</span>
-                            </div>
+                            <span class="tz-20px tw-light tc-grey-2 opacity-100">The Design of</span><br>
+                            <span class="tz-44px tw-medium tc-blue-2 opacity-100">WakaBot</span><br>
+                            <span class="tz-18px tw-light tc-grey-2 opacity-100">with mechanical hardware</span>
                         </div>
                     </div>
                 </div>

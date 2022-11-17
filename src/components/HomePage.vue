@@ -4,14 +4,17 @@ import FooterDefault from "@/components/Footer/FooterDefault.vue";
 import AboutUsComp from "@/components/Comps/AboutUsComp.vue";
 import ProductsComp from "@/components/Comps/ProductsComp.vue";
 import HeaderDefault from "@/components/HeaderDefault.vue";
+import HardwareComp from "@/components/Comps/HardwareComp.vue";
+import ProductDetailsComp from "@/components/Comps/ProductDetailsComp.vue";
 </script>
 <template>
     <NavbarDefault/>
     <HeaderDefault/>
-    <div class="container fontThin">
+    <ProductDetailsComp/>
         <ProductsComp/>
+        <HardwareComp/>
         <AboutUsComp/>
-    </div>
+
     <FooterDefault/>
 </template>
 <style>
