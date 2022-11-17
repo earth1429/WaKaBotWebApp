@@ -173,12 +173,18 @@ a {
     background-color: #FFFFFF;
     border-radius: 5px;
     border: rgba(112, 112, 112, 0.1) 1px solid;
-    width: 320px;
-    height: auto;
+    width: 325px;
+    height: 520px;
     position: relative;
     padding-bottom: 25%;
 }
 
 .sd-box{
     box-shadow: 0px 2px 5px #0000001A;
+}
+
+.box-title-white{
+    position: absolute;
+    top: 60%;
+    left: 10%;
 }
