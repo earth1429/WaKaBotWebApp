@@ -62,23 +62,10 @@ const handleSignOut = () => {
                                 </ul>
                             </li>
                             <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle tc-grey">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#m  enu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Product 1</span></a>
+                                    <a href="#" class="nav-link align-middle px-0 tc-grey">
+                                        <i class="fs-4 bi-card-image"></i> <span class="ms-1 d-none d-sm-inline">Image</span>
+                                    </a>
                             </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Product 2</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Product 3</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Product 4</span></a>
-                            </li>
-                        </ul>
-                    </li>
                         </div>
                     </ul>
                     <hr>
@@ -90,12 +77,6 @@ const handleSignOut = () => {
                             <span class="d-none d-sm-inline mx-1">{{ email }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
                             <li><a @click="handleSignOut" v-if="isLoggedIn" class="dropdown-item" href="#">Sign out</a>
                             </li>
                         </ul>
