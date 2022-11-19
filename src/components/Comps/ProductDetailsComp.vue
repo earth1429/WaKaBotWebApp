@@ -40,12 +40,12 @@
                         <div class="tz-18px">
                             <i class="bi bi-search tz-52px"></i> <br>
                             Detect <br>
-                            Acurrectly
+                            Accurately
                         </div>
                     </div> 
                 </div>
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <div class="row justify-content-center py-3">
                     <div class="col-2 ">
                         <div class="tz-18px">
@@ -69,7 +69,7 @@
                         </div>
                     </div> 
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

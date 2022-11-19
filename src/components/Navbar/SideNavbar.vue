@@ -1,4 +1,5 @@
 <script setup>
+import ManualDetailsCompVue from "../Comps/ManualDetailsComp.vue";
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -89,7 +90,7 @@ export default {
                                 <a href="/home" class="nav-link align-middle px-0 tc-grey">
                                     <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                                 </a>
-                                <a href="#" class="nav-link align-middle px-0 tc-grey">
+                                <a href="#Manual" class="nav-link align-middle px-0 tc-grey">
                                     <i class="fs-4 bi-book"></i> <span class="ms-1 d-none d-sm-inline">Manual</span>
                                 </a>
                             </li>
@@ -101,7 +102,7 @@ export default {
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li class="w-100">
                                         <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Item
-                                                1</span></a>
+                                                1</span></a>    
                                     </li>
                                     <li>
                                         <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Item
@@ -110,7 +111,7 @@ export default {
                                 </ul>
                             </li>
                             <li>
-                                    <a href="#" class="nav-link align-middle px-0 tc-grey">
+                                    <a href="#Image" class="nav-link align-middle px-0 tc-grey">
                                         <i class="fs-4 bi-card-image"></i> <span class="ms-1 d-none d-sm-inline">Image</span>
                                     </a>
                             </li>
@@ -138,6 +139,12 @@ export default {
                 <li v-for="value of arr" :key="value.des">
                     <span>{{value}}</span>
                 </li>
+                <div class="hidden" id="Manual">
+                        <ManualDetailsCompVue/>
+                    </div>
+                    <div class="hidden" id="Image">
+                        <h1>Image DataTable</h1>
+                    </div>
             </div>
         </div>
     </div>
