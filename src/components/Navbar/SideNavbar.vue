@@ -52,6 +52,7 @@ const testAdding = async () => {
     }
 };
 
+
 const timeformat=(value)=>{
     // console.log(value)
     const time = new Date(value);
@@ -62,7 +63,13 @@ const timeformat=(value)=>{
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
 
-    const formattedTime = dd + '/' + mm + '/' + yyyy;
+    let formattedTime = dd + '/' + mm + '/' + yyyy;
+
+    let h = time.getHours();
+    let m = time.getMinutes();
+    let s = time.getSeconds();
+
+    formattedTime +=" "+h+":"+m+":"+s;
 
     return formattedTime;
     // return moment(String(value)).format('MM/DD/YYYY hh:mm')
