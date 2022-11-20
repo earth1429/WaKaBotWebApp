@@ -170,8 +170,7 @@ export default {
                                 </a>
                             </li>
                             <li>
-                                <a href="#submenu1" data-bs-toggle="collapse"
-                                    class="nav-link px-0 align-middle tc-grey">
+                                <a href="#submenu1" @click="setUrl('feature')" data-bs-toggle="collapse" class="nav-link px-0 align-middle tc-grey">
                                     <i class="fs-4 bi-map"></i> <span class="ms-1 d-none d-sm-inline">Mapping</span>
                                 </a>
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
