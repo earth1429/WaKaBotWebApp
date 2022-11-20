@@ -20,7 +20,7 @@ const handleSignOut=()=>{
     });
 };
 const pushFeature=()=>{
-    router.push("/feature");
+    router.push("/feature#Manual");
 };
 </script>
 <script>

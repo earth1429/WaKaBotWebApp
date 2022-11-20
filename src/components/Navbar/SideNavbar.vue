@@ -100,7 +100,17 @@ export default {
             db : getFirestore(),
             auth : getAuth(),
             arr: [],
+            currentUrl: "",
         };
+    },
+    created() {
+        const arr=(window.location.href).split('/');
+        this.currentUrl=arr[arr.length-1];
+    },
+    methods : {
+        setUrl: function(value){
+            this.currentUrl=value;
+        }
     },
     mounted() {
         // const querySnapshot = await getDocs(collection(this.db, `users/${this.auth.currentUser.uid}/images`));
@@ -155,7 +165,7 @@ export default {
                                 <a href="/home" class="nav-link align-middle px-0 tc-grey">
                                     <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                                 </a>
-                                <a href="#Manual" class="nav-link align-middle px-0 tc-grey">
+                                <a href="#Manual" @click="setUrl('feature#Manual')" class="nav-link align-middle px-0 tc-grey">
                                     <i class="fs-4 bi-book"></i> <span class="ms-1 d-none d-sm-inline">Manual</span>
                                 </a>
                             </li>
@@ -166,17 +176,17 @@ export default {
                                 </a>
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li class="w-100">
-                                        <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Item
+                                        <a href="#" @click="setUrl('feature')" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Item
                                                 1</span></a>    
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Item
+                                        <a href="#" @click="setUrl('feature')" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Item
                                                 2</span></a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                    <a href="#Image" class="nav-link align-middle px-0 tc-grey">
+                                    <a href="#Image" @click="setUrl('feature#Image')" class="nav-link align-middle px-0 tc-grey">
                                         <i class="fs-4 bi-card-image"></i> <span class="ms-1 d-none d-sm-inline">Image</span>
                                     </a>
                             </li>
@@ -210,9 +220,12 @@ export default {
                 </li>
                 </div>
                 <br>
-                <div class="hidden" id="Manual">
+                <div id="Manual" v-bind:class="currentUrl=='feature#Manual'?'':'hidden'">
                         <ManualDetailsCompVue/>
                     </div>
+                    <!-- <div class="hidden" id="Manual">
+                        <ManualDetailsCompVue/>
+                    </div> -->
             </div>
         </div>
     </div>
