@@ -113,12 +113,20 @@ export default {
                         id: change.doc.id,
                     })
                 }
-                // if (change.type === "modified") {
-                //     console.log("Modified city: ", change.doc.data());
-                // }
-                // if (change.type === "removed") {
-                //     console.log("Removed city: ", change.doc.data());
-                // }
+                if (change.type === "modified") {                    
+                    const index=this.arr.indexOf(this.arr.find(function checkAge(value){ 
+                        return value.id===change.doc.id
+                    }));
+                    this.arr[index].des = change.doc.data().des
+                    this.arr[index].path = change.doc.data().path
+                    this.arr[index].time = change.doc.data().time
+                }
+                if (change.type === "removed") {
+                    const index=this.arr.indexOf(this.arr.find(function checkAge(value){ 
+                        return value.id===change.doc.id
+                    }));
+                    this.arr.splice(index, 1);
+                }
             });
         });
     },
