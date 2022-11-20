@@ -165,7 +165,7 @@ export default {
                                 <a href="/home" class="nav-link align-middle px-0 tc-grey">
                                     <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                                 </a>
-                                <a href="#Manual" @click="setUrl('feature#Manual')" class="nav-link align-middle px-0 tc-grey">
+                                <a href="#Manual" @click="setUrl('feature#Manual')" v-bind:class="currentUrl=='feature#Manual'?'active':''" class="nav-link align-middle px-0 tc-grey">
                                     <i class="fs-4 bi-book"></i> <span class="ms-1 d-none d-sm-inline">Manual</span>
                                 </a>
                             </li>
@@ -186,7 +186,7 @@ export default {
                                 </ul>
                             </li>
                             <li>
-                                    <a href="#Image" @click="setUrl('feature#Image')" class="nav-link align-middle px-0 tc-grey">
+                                    <a href="#Image" @click="setUrl('feature#Image')" v-bind:class="currentUrl=='feature#Image'?'active':''" class="nav-link align-middle px-0 tc-grey">
                                         <i class="fs-4 bi-card-image"></i> <span class="ms-1 d-none d-sm-inline">Image</span>
                                     </a>
                             </li>
@@ -208,7 +208,7 @@ export default {
                 </div>
             </div>
             <div class="col py-3">
-                <div class=" hidden" id="Image">
+                <div class="hidden" id="Image">
                     <h1>Image DataTable</h1>
                     <button @click="testAdding()">ADDing</button>
                 <button @click="testGetting()">GETing</button>

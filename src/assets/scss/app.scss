@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Source+Sans+Pro:wght@200&display=swap');
-*{
-    font-family: 'Merriweather',  serif;
+
+* {
+    font-family: 'Merriweather', serif;
 }
+
 .bg-white {
     background: rgb(255, 255, 255);
 }
@@ -21,10 +23,12 @@
 .tz-52px {
     font-size: 52px !important;
 }
+
 .tz-50px {
     font-size: 50px !important;
 }
-.tz-48px{
+
+.tz-48px {
     font-size: 48px !important;
 }
 
@@ -83,9 +87,11 @@
 .tw-medium {
     font-weight: 600 !important;
 }
-.t-spacing{
+
+.t-spacing {
     line-height: 1.5 !important;
 }
+
 .gif-bg {
     min-height: 90vh;
     width: 100%;
@@ -95,13 +101,14 @@
     color: #fff;
 }
 
-.text-on-gif{
+.text-on-gif {
     color: black;
     left: 0;
     position: fixed;
     right: 0;
     bottom: 45%;
 }
+
 .new-navbar {
     position: fixed;
     left: 0;
@@ -120,39 +127,46 @@
     text-align: center;
 }
 
-.width-100{
+.width-100 {
     width: 100% !important;
 }
-.width-75{
+
+.width-75 {
     width: 75% !important;
 }
-.width-50{
+
+.width-50 {
     width: 50% !important;
 }
-.width-25{
+
+.width-25 {
     width: 25% !important;
 }
 
-.opacity-100{
+.opacity-100 {
     opacity: 100% !important;
 }
-.opacity-75{
+
+.opacity-75 {
     opacity: 75% !important;
 }
-.opacity-50{
+
+.opacity-50 {
     opacity: 50% !important;
 }
-.opacity-25{
+
+.opacity-25 {
     opacity: 25% !important;
 }
 
 .section {
-    padding-top:60px;
+    padding-top: 60px;
 }
 
 a {
     text-decoration: none;
 }
+
 .login-page {
     width: 100%;
     height: 100vh;
@@ -160,6 +174,7 @@ a {
     display: flex;
     align-items: center;
 }
+
 .form-right i {
     font-size: 100px;
 }
@@ -168,11 +183,12 @@ a {
     cursor: pointer;
 }
 
-.nav-link:focus, .nav-link:hover{
+.nav-link:focus,
+.nav-link:hover {
     color: #fff !important;
 }
 
-.box-white{
+.box-white {
     background-color: #FFFFFF;
     border-radius: 5px;
     border: rgba(112, 112, 112, 0.1) 1px solid;
@@ -182,11 +198,11 @@ a {
     padding-bottom: 25%;
 }
 
-.sd-box{
+.sd-box {
     box-shadow: 0px 2px 5px #0000001A;
 }
 
-.box-title-white{
+.box-title-white {
     position: absolute;
     top: 60%;
     left: 10%;
@@ -194,8 +210,12 @@ a {
 
 .hidden {
     display: none;
-  }
-  
-  .hidden:target {
+}
+
+.hidden:target {
     display: block;
-  }
+}
+
+.nav-pills {
+    --bs-nav-pills-link-active-bg: none
+}
