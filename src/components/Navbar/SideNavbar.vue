@@ -38,20 +38,20 @@ const testGetting = async () => {
     });
 }
 
-const testAdding = async () => {
-    if(isLoggedIn.value){
-        try {
-            const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
-                des:"Hello",
-                temp:"Hey",
-                time: Date.now(),
-            });
-            console.log("Document written with ID: ", docRef.id);
-            } catch (e) {
-            console.error("Error adding document: ", e);
-        }
-    }
-};
+// const testAdding = async () => {
+//     if(isLoggedIn.value){
+//         try {
+//             const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
+//                 des:"Hello",
+//                 temp:"Hey",
+//                 time: Date.now(),
+//             });
+//             console.log("Document written with ID: ", docRef.id);
+//             } catch (e) {
+//             console.error("Error adding document: ", e);
+//         }
+//     }
+// };
 // window.addEventListener('beforeunload', function(event) {
 //     event.returnValue = auth=getAuth()
 // })
@@ -65,12 +65,25 @@ export default {
             arr: [],
         };
     },
-    async created() {
+    async mounted() {
         const querySnapshot = await getDocs(collection(this.db, `users/${this.auth.currentUser.uid}/images`));
         querySnapshot.forEach((doc) => {
-            this.arr.push([doc.des,doc.temp]);
-            console.log(`${doc.id} => ${doc.data().des}`);
+            this.arr.push(doc.data());
         });
+    },
+    methods : {
+        testAdding:async function(){
+            try {
+                const docRef = await addDoc(collection(this.db, `users/${this.auth.currentUser.uid}/images`), {
+                    des:"Hello",
+                    temp:"Hey",
+                    time: Date.now(),
+                });
+                console.log("Document written with ID: ", docRef.id);
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        }
     },
 }
 </script>
@@ -134,7 +147,7 @@ export default {
             </div>
             <div class="col py-3">
                 Content area...
-                <button @click="testAdding">ADDing</button>
+                <button @click="testAdding()">ADDing</button>
                 <button @click="testGetting">GETing</button>
                 <li v-for="value of arr" :key="value.des">
                     <span>{{value}}</span>
