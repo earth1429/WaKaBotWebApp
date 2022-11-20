@@ -2,13 +2,9 @@
 import ManualDetailsCompVue from "../Comps/ManualDetailsComp.vue";
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-// import { getAuth, onAuthStateChanged } from "firebase/auth";
 import router from "@/router";
-
-import { getFirestore } from 'firebase/firestore'
-import { collection, addDoc, getDocs, query, where, onSnapshot, Timestamp } from "firebase/firestore"; 
-
-// import moment from 'moment'
+import { getFirestore, collection, addDoc, getDocs, query, where, onSnapshot, Timestamp } from "firebase/firestore"; 
+import { getStorage, ref as storageRef, getDownloadURL} from "firebase/storage";
 
 const isLoggedIn = ref(false);
 const email = ref("");
@@ -16,10 +12,11 @@ const auth = getAuth();
 const db = getFirestore();
 
 onMounted(() => {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
         if (user) {
             isLoggedIn.value = true;
             email.value = auth.currentUser.email
+
         } else {
             isLoggedIn.value = false;
             email.value = ""
@@ -36,7 +33,7 @@ const handleSignOut = () => {
 const testGetting = async () => {
     const querySnapshot = await getDocs(collection(db, `users/${auth.currentUser.uid}/images`));
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().time}`);
+        console.log(`${doc.id} => ${doc.data().des}`);
     });
 }
 
@@ -45,22 +42,15 @@ const testAdding = async () => {
         try {
             const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
                 des:"Hello",
-                temp:"Hey",
-                time: Timestamp.fromDate(new Date()),
+                path:"Image/Human/humanity.jpg",
+                time:Timestamp.fromDate(new Date()),
             });
             console.log("Document written with ID: ", docRef.id);
-            } catch (e) {
+        } catch (e) {
             console.error("Error adding document: ", e);
         }
     }
 };
-
-const testTime=()=>{
-    const today = new Date();
-    const yesterday=today.setDate(today.getDate()-1);
-    console.log(timeformat(new Date()))
-    console.log(timeformat(yesterday))
-}
 
 const timeformat=(value)=>{
     // console.log(value)
@@ -76,6 +66,21 @@ const timeformat=(value)=>{
 
     return formattedTime;
     // return moment(String(value)).format('MM/DD/YYYY hh:mm')
+}
+
+const getImgURL=async (id, path)=>{
+    const storage = getStorage();
+    await getDownloadURL(storageRef(storage,path)).then((url) => {
+        const img = document.getElementById(id);
+        img.setAttribute('src', url);
+    })
+}
+
+const testImgURL=async ()=>{
+    const storage = getStorage();
+    await getDownloadURL(storageRef(storage, 'Image/Human/humanity.jpg')).then((url) => {
+        console.log(url)
+    })
 }
 // window.addEventListener('beforeunload', function(event) {
 //     event.returnValue = auth=getAuth()
@@ -99,13 +104,10 @@ export default {
         const today = new Date();
         const yesterday=today.setDate(today.getDate()-1);
         const q = query(collection(this.db, `users/${this.auth.currentUser.uid}/images`), where("time", ">=", Timestamp.fromDate(new Date(yesterday))));
-        
-        // const q = query(collection(this.db, `users/${this.auth.currentUser.uid}/images`), where("time", "<=", Timestamp.fromDate(new Date())));
         // const unsubscribe = 
         onSnapshot(q, (snapshot) => {
             snapshot.docChanges().forEach((change) => {
                 if (change.type === "added") {
-                    // console.log("New city: ", change.doc.data());
                     this.arr.push({
                         ...change.doc.data(),
                         id: change.doc.id,
@@ -184,10 +186,13 @@ export default {
                 Content area...
                 <button @click="testAdding()">ADDing</button>
                 <button @click="testGetting()">GETing</button>
-                <button @click="testTime()">Time</button>
-                <li v-for="value of arr" :key="value.des">
+                <button @click="testImgURL()">GET imgURL</button>
+                <li v-for="value of this.arr" :key="value.id">
                     {{value.des}} {{timeformat(value.time.toDate())}}
+                    <br>
+                    <img :id="value.id" :src=getImgURL(value.id,value.path) width="300" height="300">
                 </li>
+                <br>
                 <div class="hidden" id="Manual">
                         <ManualDetailsCompVue/>
                     </div>
