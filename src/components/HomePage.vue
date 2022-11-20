@@ -3,7 +3,7 @@ import NavbarDefault from "@/components/Navbar/NavbarDefault.vue";
 import FooterDefault from "@/components/Footer/FooterDefault.vue";
 import AboutUsComp from "@/components/Comps/AboutUsComp.vue";
 import ProductsComp from "@/components/Comps/ProductsComp.vue";
-import HeaderDefault from "@/components/HeaderDefault.vue";
+import HeaderDefault from "@/components/Header/HeaderDefault.vue";
 import HardwareComp from "@/components/Comps/HardwareComp.vue";
 import ProductDetailsComp from "@/components/Comps/ProductDetailsComp.vue";
 </script>

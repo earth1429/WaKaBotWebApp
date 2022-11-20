@@ -12,6 +12,6 @@
 </template>
 
 <style>
-@import "../css/HeaderSection.scss";
-@import "../assets/scss/app.scss";
+@import "../../css/HeaderSection.scss";
+@import "../../assets/scss/app.scss";
 </style>
