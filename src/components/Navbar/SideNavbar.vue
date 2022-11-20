@@ -6,7 +6,9 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "@/router";
 
 import { getFirestore } from 'firebase/firestore'
-import { collection, addDoc, getDocs, query, where, onSnapshot } from "firebase/firestore"; 
+import { collection, addDoc, getDocs, query, where, onSnapshot, Timestamp } from "firebase/firestore"; 
+
+// import moment from 'moment'
 
 const isLoggedIn = ref(false);
 const email = ref("");
@@ -34,7 +36,7 @@ const handleSignOut = () => {
 const testGetting = async () => {
     const querySnapshot = await getDocs(collection(db, `users/${auth.currentUser.uid}/images`));
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+        console.log(`${doc.id} => ${doc.data().time}`);
     });
 }
 
@@ -44,7 +46,7 @@ const testAdding = async () => {
             const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
                 des:"Hello",
                 temp:"Hey",
-                time: Date.now(),
+                time: Timestamp.fromDate(new Date()),
             });
             console.log("Document written with ID: ", docRef.id);
             } catch (e) {
@@ -52,6 +54,29 @@ const testAdding = async () => {
         }
     }
 };
+
+const testTime=()=>{
+    const today = new Date();
+    const yesterday=today.setDate(today.getDate()-1);
+    console.log(timeformat(new Date()))
+    console.log(timeformat(yesterday))
+}
+
+const timeformat=(value)=>{
+    // console.log(value)
+    const time = new Date(value);
+    const yyyy = time.getFullYear();
+    let mm = time.getMonth() + 1; // Months start at 0!
+    let dd = time.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedTime = dd + '/' + mm + '/' + yyyy;
+
+    return formattedTime;
+    // return moment(String(value)).format('MM/DD/YYYY hh:mm')
+}
 // window.addEventListener('beforeunload', function(event) {
 //     event.returnValue = auth=getAuth()
 // })
@@ -70,8 +95,12 @@ export default {
         // querySnapshot.forEach((doc) => {
         //     this.arr.push(...doc.data(),id:change.doc.id);
         // });
-
-        const q = query(collection(this.db, `users/${this.auth.currentUser.uid}/images`), where("des", "==", "Hello"));
+        
+        const today = new Date();
+        const yesterday=today.setDate(today.getDate()-1);
+        const q = query(collection(this.db, `users/${this.auth.currentUser.uid}/images`), where("time", ">=", Timestamp.fromDate(new Date(yesterday))));
+        
+        // const q = query(collection(this.db, `users/${this.auth.currentUser.uid}/images`), where("time", "<=", Timestamp.fromDate(new Date())));
         // const unsubscribe = 
         onSnapshot(q, (snapshot) => {
             snapshot.docChanges().forEach((change) => {
@@ -155,8 +184,9 @@ export default {
                 Content area...
                 <button @click="testAdding()">ADDing</button>
                 <button @click="testGetting()">GETing</button>
+                <button @click="testTime()">Time</button>
                 <li v-for="value of arr" :key="value.des">
-                    {{value.des}} {{value.time}}
+                    {{value.des}} {{timeformat(value.time.toDate())}}
                 </li>
                 <div class="hidden" id="Manual">
                         <ManualDetailsCompVue/>
