@@ -191,21 +191,20 @@ export default {
                 </div>
             </div>
             <div class="col py-3">
-                Content area...
-                <button @click="testAdding()">ADDing</button>
+                <div class=" hidden" id="Image">
+                    <h1>Image DataTable</h1>
+                    <button @click="testAdding()">ADDing</button>
                 <button @click="testGetting()">GETing</button>
                 <button @click="testImgURL()">GET imgURL</button>
                 <li v-for="value of this.arr" :key="value.id">
                     {{value.des}} {{timeformat(value.time.toDate())}}
                     <br>
-                    <img :id="value.id" :src=getImgURL(value.id,value.path) width="300" height="300">
+                    <img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150">
                 </li>
+                </div>
                 <br>
                 <div class="hidden" id="Manual">
                         <ManualDetailsCompVue/>
-                    </div>
-                    <div class="hidden" id="Image">
-                        <h1>Image DataTable</h1>
                     </div>
             </div>
         </div>
