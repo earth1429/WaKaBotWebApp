@@ -5,15 +5,13 @@
             <p align="center" class="tz-44px pb-3 tc-white">. . . . . . . . . . . .</p>
         </div>
         <div class="tc-white text-center container">
-            <p class="tz-22px t-spacing pb-3">WakaBot is a robot that would be used for survey in the buildings within the floor that robot is set up, to
-                detect heat from human or fire by PIR sensors and capture the image to directly sent to database time to
-                time.
+            <p class="tz-22px t-spacing pb-3">WakaBot is a robot that would be used for surveys in the buildings within the floor that the robot is set up, 
+                to detect heat from humans or fire by PIR sensors and capture the image to be directly sent to the database from time to time.
             </p>
-            <p class="tz-22px t-spacing pb-5">The robot also uses Lidra sensor to detect objects, preventing the robot from hitting any
-                object. When necessary, the client can also access WakaBot through the web
-                application, thus, allowing the client to check the picture that WakaBot capture from encounter with
-                something that have heat
-                to be able to prepare for the counter measure in the stiuation.</p>
+            <p class="tz-22px t-spacing pb-5">The robot also uses Lidra sensor to detect objects, 
+                preventing the robot from hitting any object. When necessary, 
+                the client can also access WakaBot through the web application, 
+                thus, allowing the client to check the picture that WakaBot captured from an encounter with something that has heat to be able to prepare for the countermeasure in the situation.</p>
         </div>
         <div class="container pb-5 text-center">
             <h1 class="tz-44px tw-medium tc-white">What it can do</h1>
