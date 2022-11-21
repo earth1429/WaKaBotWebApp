@@ -1,4 +1,5 @@
 <script setup>
+import ImageTableCompVue from "../Comps/ImageTableComp.vue";
 import ManualDetailsCompVue from "../Comps/ManualDetailsComp.vue";
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
@@ -213,6 +214,7 @@ export default {
             <div class="col py-3">
                 <div class="hidden" id="Image">
                     <h1>Image DataTable</h1>
+                    <ImageTableCompVue/>
                     <button @click="testAdding()">ADDing</button>
                 <button @click="testGetting()">GETing</button>
                 <button @click="testImgURL()">GET imgURL</button>
