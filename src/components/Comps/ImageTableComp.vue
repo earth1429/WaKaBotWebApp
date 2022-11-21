@@ -158,7 +158,7 @@ export default {
     <th>Capture Time</th>
   </tr>
   <tr v-for="value of this.arr" :key="value.id">
-    <td><img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150"></td>
+    <td><img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150" class="zoom"></td>
     <td>{{timeformat(value.time.toDate())}}</td>
   </tr>
 </table>
