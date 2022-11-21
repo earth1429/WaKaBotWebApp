@@ -42,7 +42,7 @@ const testAdding = async () => {
         try {
             const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
                 des:"Hello",
-                path:"Image/Human/humanity.jpg",
+                path:`Image/Human/${Math.floor(Math.random()*5+1)}.jpg`,
                 time:Timestamp.fromDate(new Date()),
             });
             console.log("Document written with ID: ", docRef.id);
