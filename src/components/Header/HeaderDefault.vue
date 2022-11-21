@@ -1,6 +1,6 @@
 <template>
 <div class="header">
-  <div class="info">
+  <div class="info" >
   <h4>UI DESIGN</h4>
     <h1>WakaBot Web Application</h1>
     <div class="meta">
@@ -12,6 +12,6 @@
 </template>
 
 <style>
-@import "../css/HeaderSection.scss";
-@import "../assets/scss/app.scss";
+@import "../../css/HeaderSection.scss";
+@import "../../assets/scss/app.scss";
 </style>

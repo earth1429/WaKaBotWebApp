@@ -1,10 +1,8 @@
 import { createWebHistory, createRouter } from "vue-router";
-import AboutUsPage from "@/components/AboutUsPage.vue"
 import HomePage from "@/components/HomePage.vue"
-import ProductsPage from "@/components/ProductsPage.vue"
 import WelcomePage from "@/components/WelcomePage.vue"
 import LoginPage from "@/components/LoginPage.vue";
-import FeedPage from "@/components/FeedPage.vue";
+import FeaturePage from "@/components/FeaturePage.vue";
 import {getAuth,onAuthStateChanged}from "firebase/auth";
 
 const routes = [
@@ -14,29 +12,22 @@ const routes = [
         component: WelcomePage,
     },
     {
-        path: "/aboutus",
-        name: "AboutUs",
-        component: AboutUsPage,
-    },
-    {
         path: "/home",
         name: "Home",
         component: HomePage,
     },
     {
-        path: "/products",
-        name: "Products",
-        component: ProductsPage,
-    },
-    {
         path: "/login",
         name: "Login",
         component: LoginPage,
+        meta:{
+            requiresNoAuth:true,
+        },
     },
     {
-        path: "/feed",
-        name: "Feed",
-        component: FeedPage,
+        path: "/feature",
+        name: "Feature",
+        component: FeaturePage,
         meta:{
             requiresAuth:true,
         },
@@ -67,7 +58,14 @@ router.beforeEach(async (to,from,next)=>{
             next();
         }else{
             console.log("You don't have access.");
-            next("/");
+            next("/home");
+        }
+    }else if(to.matched.some((record)=>record.meta.requiresNoAuth)){
+        if(await getCurrentUser()){
+            console.log("You need to logout first.");
+            next("/home");
+        }else{
+            next();
         }
     }else{
         next();
