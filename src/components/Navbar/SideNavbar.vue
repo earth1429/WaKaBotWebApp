@@ -3,7 +3,7 @@ import ManualDetailsCompVue from "../Comps/ManualDetailsComp.vue";
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "@/router";
-import { getFirestore, collection, addDoc, getDocs, query, where, onSnapshot, Timestamp } from "firebase/firestore"; 
+import { getFirestore, collection, addDoc, getDocs, query, where, orderBy, onSnapshot, Timestamp } from "firebase/firestore"; 
 import { getStorage, ref as storageRef, getDownloadURL} from "firebase/storage";
 
 const isLoggedIn = ref(false);
@@ -122,7 +122,7 @@ export default {
         
         const today = new Date();
         const yesterday=today.setDate(today.getDate()-1);
-        const q = query(collection(this.db, `users/${this.auth.currentUser.uid}/images`), where("time", ">=", Timestamp.fromDate(new Date(yesterday))));
+        const q = query(collection(this.db, `users/${this.auth.currentUser.uid}/images`), where("time", ">=", Timestamp.fromDate(new Date(yesterday))), orderBy("time", "asc"));
         // const unsubscribe = 
         onSnapshot(q, (snapshot) => {
             snapshot.docChanges().forEach((change) => {
@@ -139,6 +139,8 @@ export default {
                     this.arr[index].des = change.doc.data().des
                     this.arr[index].path = change.doc.data().path
                     this.arr[index].time = change.doc.data().time
+
+                    this.arr.sort(function(a, b){return a.time - b.time});
                 }
                 if (change.type === "removed") {
                     const index=this.arr.indexOf(this.arr.find(function checkAge(value){ 
