@@ -116,7 +116,7 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="col py-3">
+            <div class="col p-3">
                 <div id="Image" v-bind:class="currentUrl=='feature#Image'?'':'hidden'">
                     <h1>Image DataTable</h1>
                     <ImageTableCompVue/>

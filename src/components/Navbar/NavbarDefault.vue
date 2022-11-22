@@ -68,7 +68,7 @@ export default {
                         <a v-if="!isLoggedIn" class="nav-link mx-2" v-bind:class="currentUrl=='login'?'active':''" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a v-if="isLoggedIn" @click="pushFeature" class="nav-link mx-2 pointer">Beta</a>
+                        <a v-if="isLoggedIn" @click="pushFeature" class="nav-link mx-2 pointer">System</a>
                     </li>
                     <li class="nav-item">
                         <a v-if="isLoggedIn" @click="handleSignOut" class="nav-link mx-2 pointer" >Logout</a>
