@@ -33,7 +33,6 @@ const testAdding = async () => {
     if(isLoggedIn.value){
         try {
             const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
-                des:"Hello",
                 path:`Image/Human/${Math.floor(Math.random()*5+1)}.jpg`,
                 time:Timestamp.fromDate(new Date()),
             });
@@ -104,7 +103,7 @@ export default {
                         </div>
                     </ul>
                     <hr>
-                    <div class="dropdown pb-4">
+                    <div class="dropdown pb-4 miniFooter">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../../assets/img/member1.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
                             <span class="d-none d-sm-inline mx-1">{{ email }}</span>

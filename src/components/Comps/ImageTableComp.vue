@@ -101,7 +101,14 @@ export default {
             auth : getAuth(),
             arr: [],
             currentUrl: "",
+            perPage: 3,
+            currentPage: 1,
         };
+    },
+    computed: {
+      rows() {
+        return this.arr.length
+      },
     },
     created() {
         const arr=(window.location.href).split('/');
@@ -134,7 +141,6 @@ export default {
                     const index=this.arr.indexOf(this.arr.find(function checkAge(value){ 
                         return value.id===change.doc.id
                     }));
-                    this.arr[index].des = change.doc.data().des
                     this.arr[index].path = change.doc.data().path
                     this.arr[index].time = change.doc.data().time
 
@@ -149,6 +155,7 @@ export default {
             });
         });
     },
+    
 }
 </script>
 <template>
@@ -162,6 +169,24 @@ export default {
     <td>{{timeformat(value.time.toDate())}}</td>
   </tr>
 </table>
+<div class="overflow-auto">
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="my-table"
+    ></b-pagination>
+
+    <p class="mt-3">Current Page: {{ currentPage }}</p>
+
+    <b-table
+      id="my-table"
+      :items="arr"
+      :per-page="perPage"
+      :current-page="currentPage"
+      small
+    ></b-table>
+  </div>
 </template>
 <style>
 #customers {
