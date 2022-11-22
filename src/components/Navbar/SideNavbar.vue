@@ -117,7 +117,7 @@ export default {
                 </div>
             </div>
             <div class="col py-3">
-                <div id="Image">
+                <div id="Image" v-bind:class="currentUrl=='feature#Image'?'':'hidden'">
                     <h1>Image DataTable</h1>
                     <ImageTableCompVue/>
                     <button @click="testAdding()">ADDing</button>
