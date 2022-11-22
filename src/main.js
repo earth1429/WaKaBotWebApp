@@ -1,7 +1,11 @@
+// import Vue from 'vue'
 import { createApp } from 'vue';
 import App from './App.vue';
+// import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js'
+
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import router from './router';
 
@@ -29,6 +33,7 @@ initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 // console.log(analytics)
 //**//
+// Vue.use(BootstrapVue)
 
 const app = createApp(App);
 app.use(router);

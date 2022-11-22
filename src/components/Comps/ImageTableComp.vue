@@ -101,15 +101,32 @@ export default {
             auth : getAuth(),
             arr: [],
             currentUrl: "",
-            perPage: 3,
-            currentPage: 1,
+            // perPage: 3,
+            // currentPage: 1,
+            // sumitems: [
+            //     {image: value.id, time: }
+            // ]
         };
     },
-    computed: {
-      rows() {
-        return this.arr.length
-      },
-    },
+    // computed: {
+    //   rows() {
+    //     console.log('rows res is', this.result)
+    //     return this.result
+    //   },
+    //   items(){
+    //     const result = this.arr.map((value)=>{
+    //         return {
+    //             image: value.id,
+    //             time: this.timeformat(value.time.toDate()),
+    //             // image: this.getImgURL(value.id,value.path),
+    //             // time: this.timeformat(value.time.toDate())
+    //         };
+
+    //     });
+    //     console.log('res is',result)
+    //     return result;
+    //   }
+    // },
     created() {
         const arr=(window.location.href).split('/');
         this.currentUrl=arr[arr.length-1];
@@ -167,9 +184,9 @@ export default {
   <tr v-for="value of this.arr" :key="value.id">
     <td><img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150" class="zoom"></td>
     <td>{{timeformat(value.time.toDate())}}</td>
-  </tr>
+  </tr> 
 </table>
-<div class="overflow-auto">
+<!-- <div class="overflow-auto">
     <b-pagination
       v-model="currentPage"
       :total-rows="rows"
@@ -181,12 +198,12 @@ export default {
 
     <b-table
       id="my-table"
-      :items="arr"
+      :items="items"
       :per-page="perPage"
       :current-page="currentPage"
       small
     ></b-table>
-  </div>
+  </div> -->
 </template>
 <style>
 #customers {
