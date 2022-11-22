@@ -101,7 +101,14 @@ export default {
             auth : getAuth(),
             arr: [],
             currentUrl: "",
+            perPage: 3,
+            currentPage: 1,
         };
+    },
+    computed: {
+      rows() {
+        return this.arr.length
+      },
     },
     created() {
         const arr=(window.location.href).split('/');
@@ -134,7 +141,6 @@ export default {
                     const index=this.arr.indexOf(this.arr.find(function checkAge(value){ 
                         return value.id===change.doc.id
                     }));
-                    this.arr[index].des = change.doc.data().des
                     this.arr[index].path = change.doc.data().path
                     this.arr[index].time = change.doc.data().time
 
@@ -149,6 +155,7 @@ export default {
             });
         });
     },
+    
 }
 </script>
 <template>
@@ -158,11 +165,50 @@ export default {
     <th>Capture Time</th>
   </tr>
   <tr v-for="value of this.arr" :key="value.id">
-    <td><img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150"></td>
+    <td><img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150" class="zoom"></td>
     <td>{{timeformat(value.time.toDate())}}</td>
   </tr>
 </table>
+<div class="overflow-auto">
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="my-table"
+    ></b-pagination>
+
+    <p class="mt-3">Current Page: {{ currentPage }}</p>
+
+    <b-table
+      id="my-table"
+      :items="arr"
+      :per-page="perPage"
+      :current-page="currentPage"
+      small
+    ></b-table>
+  </div>
 </template>
 <style>
+#customers {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #000000;
+  color: white;
+}
 @import "../../assets/scss/app.scss";
 </style>
