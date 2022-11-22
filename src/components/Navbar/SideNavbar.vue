@@ -117,7 +117,7 @@ export default {
                 </div>
             </div>
             <div class="col py-3">
-                <div class="hidden" id="Image">
+                <div id="Image">
                     <h1>Image DataTable</h1>
                     <ImageTableCompVue/>
                     <button @click="testAdding()">ADDing</button>
