@@ -21,6 +21,7 @@ import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyAOZsyilgV6v0VZ56n_7vjf2MdeuMepIo4",
   authDomain: "wakabotpro.firebaseapp.com",
+  databaseURL: "https://wakabotpro-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "wakabotpro",
   storageBucket: "wakabotpro.appspot.com",
   messagingSenderId: "537097511792",
