@@ -84,19 +84,6 @@ export default {
                                 </a>
                             </li>
                             <li>
-                                <a href="#submenu1" @click="setUrl('feature')" data-bs-toggle="collapse" class="nav-link px-0 align-middle tc-grey">
-                                    <i class="fs-4 bi-map"></i> <span class="ms-1 d-none d-sm-inline">Mapping</span>
-                                </a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                    <li class="w-100">
-                                        <a href="#" @click="setUrl('feature')" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Item 1</span></a>    
-                                    </li>
-                                    <li>
-                                        <a href="#" @click="setUrl('feature')" class="nav-link px-0 tc-grey"> <span class="d-none d-sm-inline">Item 2</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
                                 <a href="#Image" @click="setUrl('feature#Image')" v-bind:class="currentUrl=='feature#Image'?'active':''" class="nav-link align-middle px-0 tc-grey">
                                     <i class="fs-4 bi-card-image"></i> <span class="ms-1 d-none d-sm-inline">Image</span>
                                 </a>
@@ -121,7 +108,7 @@ export default {
                 <div id="Image" v-bind:class="currentUrl=='feature#Image'?'':'hidden'">
                     <h1>Image DataTable</h1>
                     <ImageTableCompVue/>
-                    <button @click="testAdding()">ADDing</button>
+                    <button @click="testAdding()" class="hidden">ADDing</button>
                 </div>
                 <br>
                 <div id="Manual" v-bind:class="currentUrl=='feature#Manual'?'':'hidden'">

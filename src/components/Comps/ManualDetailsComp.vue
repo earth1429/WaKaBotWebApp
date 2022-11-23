@@ -12,15 +12,15 @@
         <div class="p-3">
             <h3 class="tw-medium">What It can do?</h3>
             <div class="p-3">
-                <h4 class="tw-medium p-2">There are 2 systems.</h4>
+                <h4 class="tw-medium p-2">There are 1 systems.</h4>
                 <ul class="py-2 px-5">
-                    <li>
+                    <!-- <li>
                         First is Mapping, to show the area of the building that WakaBot generate by use Lidar scanner to
                         scan
                         surrounding object.
-                    </li>
+                    </li> -->
                     <li>
-                        Second is Image, these feature is to show the image data in the database that WakaBot captured
+                        The feature is called Image, these feature is to show the image data in the database that WakaBot captured
                         and sent to
                         the database
                         and show the data into dataTable.
