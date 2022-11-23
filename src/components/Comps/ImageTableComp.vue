@@ -1,8 +1,14 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, collection, query, where, orderBy, onSnapshot, Timestamp } from "firebase/firestore"; 
+import { getFirestore, collection, query, where, orderBy, onSnapshot, Timestamp, doc, updateDoc, deleteDoc } from "firebase/firestore"; 
 import { getStorage, ref as storageRef, getDownloadURL} from "firebase/storage";
+
+// import { onMounted, ref } from "vue";
+// import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+// import router from "@/router";
+// import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore"; 
+
 
 const isLoggedIn = ref(false);
 const email = ref("");
@@ -50,6 +56,49 @@ onMounted(() => {
 //     }
 // };
 
+// const updating= async (valueId,value) => {
+//     if(isLoggedIn.value){
+//         try {
+//             // const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
+//             //     des:"Hello",
+//             //     path:`Image/Human/${Math.floor(Math.random()*5+1)}.jpg`,
+//             //     time:Timestamp.fromDate(new Date()),
+//             // });
+
+//             // /users/ClRW0i2LkXXsUvpj8La9y30m4Po2/images/NfjWjZq6BTcaQvax7N8k
+//             // console.log("UP")
+//             const docRef = doc(db,`users/${auth.currentUser.uid}/images/${valueId}`);
+//             await updateDoc(docRef, {
+//                 case: !value
+//             });
+//             console.log("Document updated with ID: ", docRef.id);
+
+//             if(this.filer){
+//                 console.log("geee")
+//             }
+
+//         } catch (e) {
+//             console.error("Error updating document: ", e);
+//         }
+//     }
+// };
+
+// const deleting= async (valueId) => {
+//     if(isLoggedIn.value){
+//         try {
+//             // const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
+//             //     des:"Hello",
+//             //     path:`Image/Human/${Math.floor(Math.random()*5+1)}.jpg`,
+//             //     time:Timestamp.fromDate(new Date()),
+//             // });
+//             // console.log("DEL")
+//             await deleteDoc(doc(db, `users/${auth.currentUser.uid}/images/${valueId}`));
+//             console.log("Delete with ID: ", valueId);
+//         } catch (e) {
+//             console.error("Error deleting document: ", e);
+//         }
+//     }
+// };
 
 const timeformat=(value)=>{
     // console.log(value)
@@ -100,7 +149,9 @@ export default {
             db : getFirestore(),
             auth : getAuth(),
             arr: [],
+            arrShown: [],
             currentUrl: "",
+            filter: false,
             // perPage: 3,
             // currentPage: 1,
             // sumitems: [
@@ -134,7 +185,63 @@ export default {
     methods : {
         setUrl: function(value){
             this.currentUrl=value;
-        }
+        },
+        filtering: function(){
+            this.filter=!this.filter
+            if(this.filter){
+
+                let tempArr=[]
+                for (let i=0; i<this.arrShown.length; i++) {
+                    if(this.arrShown[i].case){
+                        console.log(this.arrShown[i])
+                        tempArr.push(this.arrShown[i])
+                    }
+                }
+                this.arrShown = tempArr
+
+            }else{
+                this.arrShown = this.arr
+            }
+        },
+        updating: async function(valueId,value){
+                try {
+                    const docRef = doc(this.db,`users/${this.auth.currentUser.uid}/images/${valueId}`);
+                    await updateDoc(docRef, {
+                        case: !value
+                    });
+                    console.log("Document updated with ID: ", docRef.id);
+
+
+                    console.log("geee3")
+                    if(this.filter){
+                        console.log("geee")
+                        if(this.filter){
+                            let tempArr=[]
+                            for (let i=0; i<this.arrShown.length; i++) {
+                                if(this.arrShown[i].case){
+                                    console.log(this.arrShown[i])
+                                    tempArr.push(this.arrShown[i])
+                                }
+                            }
+                            this.arrShown = tempArr
+
+                        }else{
+                            this.arrShown = this.arr
+                        }
+                    }
+
+                } catch (e) {
+                    console.error("Error updating document: ", e);
+                }
+        },
+        deleting: async function(valueId){
+            try {
+                await deleteDoc(doc(this.db, `users/${this.auth.currentUser.uid}/images/${valueId}`));
+                console.log("Delete with ID: ", valueId);
+            } catch (e) {
+                console.error("Error deleting document: ", e);
+            }
+        },
     },
     mounted() {
         // const querySnapshot = await getDocs(collection(this.db, `users/${this.auth.currentUser.uid}/images`));
@@ -153,21 +260,38 @@ export default {
                         ...change.doc.data(),
                         id: change.doc.id,
                     })
+
+                    this.arrShown.push({
+                        ...change.doc.data(),
+                        id: change.doc.id,
+                    })
                 }
-                if (change.type === "modified") {                    
+                if (change.type === "modified") {                
                     const index=this.arr.indexOf(this.arr.find(function checkAge(value){ 
                         return value.id===change.doc.id
                     }));
                     this.arr[index].path = change.doc.data().path
                     this.arr[index].time = change.doc.data().time
+                    this.arr[index].case = change.doc.data().case
 
                     this.arr.sort(function(a, b){return a.time - b.time});
+
+                    this.arrShown[index].path = change.doc.data().path
+                    this.arrShown[index].time = change.doc.data().time
+                    this.arrShown[index].case = change.doc.data().case
+
+                    this.arrShown.sort(function(a, b){return a.time - b.time});
                 }
                 if (change.type === "removed") {
-                    const index=this.arr.indexOf(this.arr.find(function checkAge(value){ 
+                    const index=this.arr.indexOf(this.arr.find(function checkID(value){ 
                         return value.id===change.doc.id
                     }));
                     this.arr.splice(index, 1);
+
+                    const index2=this.arrShown.indexOf(this.arrShown.find(function checkID(value){ 
+                        return value.id===change.doc.id
+                    }));
+                    this.arrShown.splice(index2, 1);
                 }
             });
         });
@@ -176,14 +300,19 @@ export default {
 }
 </script>
 <template>
+<button @click="filtering()">Filtering</button>: {{this.filter}}
 <table id="customers">
   <tr>
     <th>Image</th>
     <th>Capture Time</th>
+    <th>Case of Interests</th>
+    <th>Deletion</th>
   </tr>
-  <tr v-for="value of this.arr" :key="value.id">
+  <tr v-for="value of this.arrShown" :key="value.id">
     <td><img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150" class="zoom"></td>
     <td>{{timeformat(value.time.toDate())}}</td>
+    <td>{{value.case}} <span> </span> <button @click="updating(value.id,value.case)">Marked</button></td>
+    <td><button @click="deleting(value.id)">DELETE</button></td>
   </tr> 
 </table>
 <!-- <div class="overflow-auto">
