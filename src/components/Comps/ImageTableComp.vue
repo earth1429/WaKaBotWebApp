@@ -4,12 +4,6 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, query, where, orderBy, onSnapshot, Timestamp, doc, updateDoc, deleteDoc } from "firebase/firestore"; 
 import { getStorage, ref as storageRef, getDownloadURL} from "firebase/storage";
 
-// import { onMounted, ref } from "vue";
-// import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-// import router from "@/router";
-// import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore"; 
-
-
 const isLoggedIn = ref(false);
 const email = ref("");
 const auth = getAuth();
@@ -27,34 +21,6 @@ onMounted(() => {
         }
     });
 });
-// const handleSignOut = () => {
-//     console.log(auth.currentUser)
-//     signOut(auth).then(() => {
-//         router.push("/home");
-//     });
-// };
-
-// const testGetting = async () => {
-//     const querySnapshot = await getDocs(collection(db, `users/${auth.currentUser.uid}/images`));
-//     querySnapshot.forEach((doc) => {
-//         console.log(`${doc.id} => ${doc.data().des}`);
-//     });
-// }
-
-// const testAdding = async () => {
-//     if(isLoggedIn.value){
-//         try {
-//             const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
-//                 des:"Hello",
-//                 path:`Image/Human/${Math.floor(Math.random()*5+1)}.jpg`,
-//                 time:Timestamp.fromDate(new Date()),
-//             });
-//             console.log("Document written with ID: ", docRef.id);
-//         } catch (e) {
-//             console.error("Error adding document: ", e);
-//         }
-//     }
-// };
 
 // const updating= async (valueId,value) => {
 //     if(isLoggedIn.value){
@@ -131,16 +97,6 @@ const getImgURL=async (id, path)=>{
         img.setAttribute('src', url);
     })
 }
-
-// const testImgURL=async ()=>{
-//     const storage = getStorage();
-//     await getDownloadURL(storageRef(storage, 'Image/Human/humanity.jpg')).then((url) => {
-//         console.log(url)
-//     })
-// }
-// window.addEventListener('beforeunload', function(event) {
-//     event.returnValue = auth=getAuth()
-// })
 </script>
 <script>
 export default {
@@ -183,6 +139,13 @@ export default {
         this.currentUrl=arr[arr.length-1];
     },
     methods : {
+        getFilteringName: function(){
+            if(this.filter){
+                return "Filtered"
+            }else{
+                return "Not Filter"
+            }
+        },
         setUrl: function(value){
             this.currentUrl=value;
         },
@@ -204,6 +167,7 @@ export default {
             }
         },
         updating: async function(valueId,value){
+                console.log(valueId)
                 try {
                     const docRef = doc(this.db,`users/${this.auth.currentUser.uid}/images/${valueId}`);
                     await updateDoc(docRef, {
@@ -211,10 +175,7 @@ export default {
                     });
                     console.log("Document updated with ID: ", docRef.id);
 
-
-                    console.log("geee3")
                     if(this.filter){
-                        console.log("geee")
                         if(this.filter){
                             let tempArr=[]
                             for (let i=0; i<this.arrShown.length; i++) {
@@ -235,6 +196,7 @@ export default {
                 }
         },
         deleting: async function(valueId){
+            console.log(valueId)
             try {
                 await deleteDoc(doc(this.db, `users/${this.auth.currentUser.uid}/images/${valueId}`));
                 console.log("Delete with ID: ", valueId);
@@ -300,7 +262,7 @@ export default {
 }
 </script>
 <template>
-<button @click="filtering()">Filtering</button>: {{this.filter}}
+<button @click="filtering()">{{this.getFilteringName()}}</button>
 <table id="customers">
   <tr>
     <th>Image</th>
