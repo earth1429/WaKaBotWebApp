@@ -22,50 +22,6 @@ onMounted(() => {
     });
 });
 
-// const updating= async (valueId,value) => {
-//     if(isLoggedIn.value){
-//         try {
-//             // const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
-//             //     des:"Hello",
-//             //     path:`Image/Human/${Math.floor(Math.random()*5+1)}.jpg`,
-//             //     time:Timestamp.fromDate(new Date()),
-//             // });
-
-//             // /users/ClRW0i2LkXXsUvpj8La9y30m4Po2/images/NfjWjZq6BTcaQvax7N8k
-//             // console.log("UP")
-//             const docRef = doc(db,`users/${auth.currentUser.uid}/images/${valueId}`);
-//             await updateDoc(docRef, {
-//                 case: !value
-//             });
-//             console.log("Document updated with ID: ", docRef.id);
-
-//             if(this.filer){
-//                 console.log("geee")
-//             }
-
-//         } catch (e) {
-//             console.error("Error updating document: ", e);
-//         }
-//     }
-// };
-
-// const deleting= async (valueId) => {
-//     if(isLoggedIn.value){
-//         try {
-//             // const docRef = await addDoc(collection(db, `users/${auth.currentUser.uid}/images`), {
-//             //     des:"Hello",
-//             //     path:`Image/Human/${Math.floor(Math.random()*5+1)}.jpg`,
-//             //     time:Timestamp.fromDate(new Date()),
-//             // });
-//             // console.log("DEL")
-//             await deleteDoc(doc(db, `users/${auth.currentUser.uid}/images/${valueId}`));
-//             console.log("Delete with ID: ", valueId);
-//         } catch (e) {
-//             console.error("Error deleting document: ", e);
-//         }
-//     }
-// };
-
 const timeformat=(value)=>{
     // console.log(value)
     const time = new Date(value);
@@ -156,22 +112,28 @@ export default {
         setUrl: function(value){
             this.currentUrl=value;
         },
-        filtering: function(){
-            this.filter=!this.filter
+        filterComputing: function(){
             if(this.filter){
 
                 let tempArr=[]
                 for (let i=0; i<this.arrShown.length; i++) {
                     if(this.arrShown[i].case){
-                        console.log(this.arrShown[i])
                         tempArr.push(this.arrShown[i])
                     }
                 }
                 this.arrShown = tempArr
 
             }else{
-                this.arrShown = this.arr
+                let tempArr=[]
+                for (let i=0; i<this.arr.length; i++) {
+                    tempArr.push(this.arr[i])
+                }
+                this.arrShown = tempArr
             }
+        },
+        filtering: function(){
+            this.filter=!this.filter
+            this.filterComputing()
         },
         updating: async function(valueId,value){
                 console.log(valueId)
@@ -181,23 +143,6 @@ export default {
                         case: !value
                     });
                     console.log("Document updated with ID: ", docRef.id);
-
-                    if(this.filter){
-                        if(this.filter){
-                            let tempArr=[]
-                            for (let i=0; i<this.arrShown.length; i++) {
-                                if(this.arrShown[i].case){
-                                    console.log(this.arrShown[i])
-                                    tempArr.push(this.arrShown[i])
-                                }
-                            }
-                            this.arrShown = tempArr
-
-                        }else{
-                            this.arrShown = this.arr
-                        }
-                    }
-
                 } catch (e) {
                     console.error("Error updating document: ", e);
                 }
@@ -211,7 +156,19 @@ export default {
                 console.error("Error deleting document: ", e);
             }
         },
-        confirmation: function(valueId) {
+        updateConfirmation: function(valueId,value){
+            if(this.filter){
+                if (confirm("Do you really want to unselect this?")) {
+                    this.updating(valueId,value)
+                    console.log("You pressed OK!")
+                } else {
+                    console.log("You pressed Cancel!")
+                }
+            }else{
+                this.updating(valueId,value)
+            }
+        },
+        deleteConfirmation: function(valueId) {
             if (confirm("Do you really want to delete this?")) {
                 this.deleting(valueId)
                 console.log("You pressed OK!")
@@ -248,13 +205,15 @@ export default {
                         id: change.doc.id,
                     })
 
-                    this.arrShown.push({
-                        ...change.doc.data(),
-                        id: change.doc.id,
-                    })
+                    if(!this.filter){
+                        this.arrShown.push({
+                            ...change.doc.data(),
+                            id: change.doc.id,
+                        })
+                    }
                 }
                 if (change.type === "modified") {                
-                    const index=this.arr.indexOf(this.arr.find(function checkAge(value){ 
+                    const index=this.arr.indexOf(this.arr.find((value)=>{ 
                         return value.id===change.doc.id
                     }));
                     this.arr[index].path = change.doc.data().path
@@ -263,11 +222,20 @@ export default {
 
                     this.arr.sort((a, b)=>{return a.time - b.time});
 
-                    this.arrShown[index].path = change.doc.data().path
-                    this.arrShown[index].time = change.doc.data().time
-                    this.arrShown[index].case = change.doc.data().case
+                    if(this.filter){
+                        this.filterComputing()
+                    }else{
+                        const index2=this.arrShown.indexOf(this.arrShown.find((value)=>{ 
+                            return value.id===change.doc.id
+                        }));
+                        if(index2>-1){
+                            this.arrShown[index2].path = change.doc.data().path
+                            this.arrShown[index2].time = change.doc.data().time
+                            this.arrShown[index2].case = change.doc.data().case
 
-                    this.arrShown.sort((a, b)=>{return a.time - b.time});
+                            this.arrShown.sort((a, b)=>{return a.time - b.time});
+                        }
+                    }
                 }
                 if (change.type === "removed") {
                     const index=this.arr.indexOf(this.arr.find((value)=>{ 
@@ -278,7 +246,9 @@ export default {
                     const index2=this.arrShown.indexOf(this.arrShown.find((value)=>{ 
                         return value.id===change.doc.id
                     }));
-                    this.arrShown.splice(index2, 1);
+                    if(index2>-1){
+                        this.arrShown.splice(index2, 1);
+                    }
                 }
             });
         });
@@ -299,10 +269,10 @@ export default {
     <td><img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150" class="zoom"></td>
     <td>{{timeformat(value.time.toDate())}}</td>
     <td>
-        <button @click="updating(value.id,value.case)" v-bind:style="value.case? 'background-color:#90EE90':'background-color:#FFCCCB'">{{getCaseType(value.case)}}</button>
+        <button @click="updateConfirmation(value.id,value.case)" v-bind:style="value.case? 'background-color:#90EE90':'background-color:#FFCCCB'">{{getCaseType(value.case)}}</button>
         <!-- <input @click="updating(value.id,value.case)" type="checkbox" :id="getCheckboxId(value.id)" :name="getCheckboxId(value.id)" value="selection"><label :for="getCheckboxId(value.id)"> Marked</label><br> -->
     </td>
-    <td><button @click="confirmation(value.id)">DELETE</button></td>
+    <td><button @click="deleteConfirmation(value.id)">DELETE</button></td>
   </tr> 
 </table>
 <!-- <div class="overflow-auto"> background-color:#0a0a23
