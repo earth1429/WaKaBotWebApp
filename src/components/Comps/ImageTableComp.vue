@@ -143,7 +143,14 @@ export default {
             if(this.filter){
                 return "Filtered"
             }else{
-                return "Not Filter"
+                return "Not Filtered"
+            }
+        },
+        getCaseType: function(value){
+            if(value){
+                return "Selected"
+            }else{
+                return "Unselected"
             }
         },
         setUrl: function(value){
@@ -204,6 +211,24 @@ export default {
                 console.error("Error deleting document: ", e);
             }
         },
+        confirmation: function(valueId) {
+            if (confirm("Do you really want to delete this?")) {
+                this.deleting(valueId)
+                console.log("You pressed OK!")
+            } else {
+                console.log("You pressed Cancel!")
+            }
+        },
+        // checkboxValue: function(valueId){
+        //     if (document.getElementById(`${valueId}checkbox`).checked) {
+        //         return true
+        //     } else {
+        //         return false
+        //     }
+        // },
+        // getCheckboxId: function(valueId){
+        //     return `${valueId}checkbox`
+        // }
     },
     mounted() {
         // const querySnapshot = await getDocs(collection(this.db, `users/${this.auth.currentUser.uid}/images`));
@@ -236,21 +261,21 @@ export default {
                     this.arr[index].time = change.doc.data().time
                     this.arr[index].case = change.doc.data().case
 
-                    this.arr.sort(function(a, b){return a.time - b.time});
+                    this.arr.sort((a, b)=>{return a.time - b.time});
 
                     this.arrShown[index].path = change.doc.data().path
                     this.arrShown[index].time = change.doc.data().time
                     this.arrShown[index].case = change.doc.data().case
 
-                    this.arrShown.sort(function(a, b){return a.time - b.time});
+                    this.arrShown.sort((a, b)=>{return a.time - b.time});
                 }
                 if (change.type === "removed") {
-                    const index=this.arr.indexOf(this.arr.find(function checkID(value){ 
+                    const index=this.arr.indexOf(this.arr.find((value)=>{ 
                         return value.id===change.doc.id
                     }));
                     this.arr.splice(index, 1);
 
-                    const index2=this.arrShown.indexOf(this.arrShown.find(function checkID(value){ 
+                    const index2=this.arrShown.indexOf(this.arrShown.find((value)=>{ 
                         return value.id===change.doc.id
                     }));
                     this.arrShown.splice(index2, 1);
@@ -273,12 +298,15 @@ export default {
   <tr v-for="value of this.arrShown" :key="value.id">
     <td><img :id="value.id" :src=getImgURL(value.id,value.path) width="150" height="150" class="zoom"></td>
     <td>{{timeformat(value.time.toDate())}}</td>
-    <td>{{value.case}} <span> </span> <button @click="updating(value.id,value.case)">Marked</button></td>
-    <td><button @click="deleting(value.id)">DELETE</button></td>
+    <td>
+        <button @click="updating(value.id,value.case)" v-bind:style="value.case? 'background-color:#90EE90':'background-color:#FFCCCB'">{{getCaseType(value.case)}}</button>
+        <!-- <input @click="updating(value.id,value.case)" type="checkbox" :id="getCheckboxId(value.id)" :name="getCheckboxId(value.id)" value="selection"><label :for="getCheckboxId(value.id)"> Marked</label><br> -->
+    </td>
+    <td><button @click="confirmation(value.id)">DELETE</button></td>
   </tr> 
 </table>
-<!-- <div class="overflow-auto">
-    <b-pagination
+<!-- <div class="overflow-auto"> background-color:#0a0a23
+    <b-pagination 
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
