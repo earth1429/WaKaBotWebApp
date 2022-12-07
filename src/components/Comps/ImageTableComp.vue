@@ -222,19 +222,19 @@ export default {
 
                     this.arr.sort((a, b)=>{return a.time - b.time});
 
+                    const index2=this.arrShown.indexOf(this.arrShown.find((value)=>{ 
+                        return value.id===change.doc.id
+                    }));
+                    if(index2>-1){
+                        this.arrShown[index2].path = change.doc.data().path
+                        this.arrShown[index2].time = change.doc.data().time
+                        this.arrShown[index2].case = change.doc.data().case
+
+                        this.arrShown.sort((a, b)=>{return a.time - b.time});
+                    }
+
                     if(this.filter){
                         this.filterComputing()
-                    }else{
-                        const index2=this.arrShown.indexOf(this.arrShown.find((value)=>{ 
-                            return value.id===change.doc.id
-                        }));
-                        if(index2>-1){
-                            this.arrShown[index2].path = change.doc.data().path
-                            this.arrShown[index2].time = change.doc.data().time
-                            this.arrShown[index2].case = change.doc.data().case
-
-                            this.arrShown.sort((a, b)=>{return a.time - b.time});
-                        }
                     }
                 }
                 if (change.type === "removed") {
