@@ -219,3 +219,27 @@ a {
 .nav-pills {
     --bs-nav-pills-link-active-bg: none
 }
+
+.zoom {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+  }
+
+.zoom:hover {
+    transform: scale(2); /* (200% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.miniFooter{
+    position:fixed;
+    bottom:0;
+}
+
+.box-white-middle{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: rgba(112, 112, 112, 0.1) 1px solid;
+    width: auto;
+    height: auto;
+    position: relative;
+    padding-bottom: 25%;
+}
